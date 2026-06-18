@@ -58,7 +58,7 @@ export default function DesktopIcon({ icon, label, selected, onSelect, onOpen }:
         className="xp-icon-label"
         style={{
           color: "#fff",
-          fontSize: 11,
+          fontSize: 12,
           textAlign: "center",
           lineHeight: 1.15,
           padding: "1px 3px",

@@ -107,7 +107,7 @@ export default function ExplorerShell({
           display: "flex",
           alignItems: "center",
           padding: "0 8px",
-          fontSize: 11,
+          fontSize: 12,
           background: "#ece9d8",
           borderTop: "1px solid #d6d2bd",
           color: "#333",

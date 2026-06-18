@@ -87,7 +87,7 @@ export default function MyProjects() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={icon(p.ikon)} alt="" width={44} height={44} draggable={false} />
             <span style={{ fontWeight: "bold" }}>{p.namn}</span>
-            <span style={{ color: "#777", fontSize: 10 }}>{p.kort}</span>
+            <span style={{ color: "#777", fontSize: 11 }}>{p.kort}</span>
           </button>
         ))}
       </div>

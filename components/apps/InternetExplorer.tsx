@@ -67,7 +67,7 @@ export default function InternetExplorer() {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && onGo()}
-            style={{ flex: 1, border: "none", outline: "none", padding: "3px 6px", fontFamily: "var(--xp-font)", fontSize: 11 }}
+            style={{ flex: 1, border: "none", outline: "none", padding: "3px 6px", fontFamily: "var(--xp-font)", fontSize: 12 }}
           />
         </div>
         <button className="xp-btn" style={{ minWidth: 50 }} onClick={onGo}>

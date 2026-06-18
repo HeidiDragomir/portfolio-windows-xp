@@ -61,12 +61,12 @@ export default function BootScreen({ onDone }: Props) {
           bottom: 24,
           right: 40,
           textAlign: "right",
-          fontSize: 11,
+          fontSize: 16,
           color: "#cfd6e6",
         }}
       >
-        <div style={{ fontWeight: "bold" }}>Microsoft</div>
-        <div style={{ opacity: 0.7 }}>Copyright © Microsoft Corporation</div>
+        <div style={{ fontWeight: "bold" }}>Welcome to my portfolio.</div>
+        <div style={{ opacity: 0.7 }}>Copyright © 2026 Heidi Dragomir</div>
       </div>
 
       <style>{`

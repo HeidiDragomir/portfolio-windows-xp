@@ -10,10 +10,37 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    roll: "Fullstack Developer .NET – Internship",
+    roll: "Co-owner / Fullstack Developer",
+    foretag: "Bidstacker",
+    ort: "Remote",
+    period: "Jul 2023 - Present",
+    beskrivning:
+      "Led product development and system maintenance in a startup with broad responsibility.",
+    punkter: [
+      "Developed and extended features in Next.js and Node.js/Express for a live web platform.",
+      "Implemented the Two payment solution and improved payment flows for better stability and a clearer user experience.",
+      "Designed and built backend APIs integrating the frontend, the database and external services.",
+      "Improved state management and data handling by introducing Zustand and React Query.",
+      "Built form validation and messaging features with a focus on usability and structure.",
+      "Worked continuously with Git-based workflows, code improvements and agile development alongside other developers.",
+    ],
+    teknikstack: [
+      "React/Next.js",
+      "JavaScript",
+      "Node.js/Express",
+      "MongoDB",
+      "CSS/Tailwind",
+      "Git",
+      "GitHub",
+      "DigitalOcean",
+      "Agile/Scrum",
+    ],
+  },
+  {
+    roll: "Fullstack Developer .NET - Internship",
     foretag: "Advacy",
     ort: "Jönköping",
-    period: "Nov 2025 – Jun 2026",
+    period: "Nov 2025 - Jun 2026",
     beskrivning:
       "Part of an agile development team, contributing to two client projects built on a microservices architecture.",
     punkter: [
@@ -44,37 +71,10 @@ export const experience: Experience[] = [
     ],
   },
   {
-    roll: "Co-owner / Fullstack Developer",
-    foretag: "Bidstacker",
-    ort: "Remote",
-    period: "Jul 2023 – Present",
-    beskrivning:
-      "Drove product development and system maintenance in a fast-paced startup with broad responsibility.",
-    punkter: [
-      "Developed and extended features in Next.js and Node.js/Express for a live web platform.",
-      "Implemented the Two payment solution and improved payment flows for better stability and a clearer user experience.",
-      "Designed and built backend APIs integrating the frontend, the database and external services.",
-      "Improved state management and data handling by introducing Zustand and React Query.",
-      "Built form validation and messaging features with a focus on usability and structure.",
-      "Worked continuously with Git-based workflows, code improvements and agile development alongside other developers.",
-    ],
-    teknikstack: [
-      "React/Next.js",
-      "JavaScript",
-      "Node.js/Express",
-      "MongoDB",
-      "CSS/Tailwind",
-      "Git",
-      "GitHub",
-      "DigitalOcean",
-      "Agile/Scrum",
-    ],
-  },
-  {
-    roll: "Fullstack Developer – Internship",
+    roll: "Fullstack Developer - Internship",
     foretag: "Bidstacker",
     ort: "Stockholm",
-    period: "Nov 2022 – Jun 2023",
+    period: "Nov 2022 - Jun 2023",
     beskrivning:
       "Went from student to active contributor in a product team — building features in a living codebase while deepening my knowledge of the React ecosystem.",
     punkter: [
@@ -94,10 +94,10 @@ export const experience: Experience[] = [
     ],
   },
   {
-    roll: "Project Manager – Official Journal of the European Union",
-    foretag: "DocEssensis SRL – TD department",
+    roll: "Project Manager - Official Journal of the European Union",
+    foretag: "DocEssensis SRL - TD department",
     ort: "Romania",
-    period: "2015 – Feb 2019",
+    period: "2015 - Feb 2019",
     beskrivning:
       "Led and coordinated deliveries with high demands on quality, structure and accuracy.",
     punkter: [

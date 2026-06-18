@@ -48,7 +48,7 @@ export default function RecycleBin() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={icon(d.ikon)} alt="" width={40} height={40} draggable={false} style={{ opacity: 0.85 }} />
             <span>{d.namn}</span>
-            <span style={{ color: "#888", fontSize: 10 }}>{d.typ}</span>
+            <span style={{ color: "#888", fontSize: 11 }}>{d.typ}</span>
           </div>
         ))}
       </div>

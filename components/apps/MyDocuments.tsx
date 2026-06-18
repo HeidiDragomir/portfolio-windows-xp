@@ -90,7 +90,7 @@ export default function MyDocuments() {
                       <span
                         key={t}
                         style={{
-                          fontSize: 10,
+                          fontSize: 11,
                           background: "#dbe7fb",
                           border: "1px solid #b6cdf0",
                           borderRadius: 3,

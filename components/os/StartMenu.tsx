@@ -3,8 +3,9 @@
 import { START_MENU_APPS, type AppDef } from "@/lib/apps";
 import { useWindows } from "./WindowManagerProvider";
 import { profile } from "@/lib/data/profile";
-import { icon } from "@/lib/icons";
+import { AVATAR, icon } from "@/lib/icons";
 import { playClick } from "@/lib/audio";
+import { useState } from "react";
 
 interface Props {
   onClose: () => void;
@@ -14,6 +15,7 @@ interface Props {
 
 export default function StartMenu({ onClose, onLogOff, onTurnOff }: Props) {
   const { open } = useWindows();
+  const [hover, setHover] = useState(false);
 
   function openApp(app: AppDef) {
     playClick();
@@ -37,11 +39,24 @@ export default function StartMenu({ onClose, onLogOff, onTurnOff }: Props) {
       <div className="xp-startmenu-header">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className="xp-startmenu-avatar"
-          src={icon("User Accounts.png")}
-          alt=""
-          draggable={false}
-        />
+                  src={AVATAR}
+                  alt={profile.namn}
+                  width={48}
+                  height={48}
+                  draggable={false}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    objectFit: "cover",
+                    borderRadius: 5,
+                    border: "2px solid #fff",
+                    background: "#9db8e8",
+                    boxShadow: hover
+                      ? "0 0 8px rgba(255,255,255,0.7)"
+                      : "0 1px 3px rgba(0,0,0,0.3)",
+                  }}
+                />
+
         {profile.namn}
       </div>
 

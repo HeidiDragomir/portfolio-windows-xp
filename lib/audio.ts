@@ -103,10 +103,11 @@ export interface MusicTrack {
   id: string;
   namn: string;
   artist: string;
-  bpm: number;
+  filePath?: string; // MP3 file path, if present use real audio instead of synth
+  bpm?: number;
   /** 0 = rest, otherwise MIDI note number. One value per 16th note. */
-  melody: number[];
-  bass: number[];
+  melody?: number[];
+  bass?: number[];
 }
 
 function midiToFreq(m: number) {
@@ -121,60 +122,27 @@ function pat(seq: Array<[number, number]>): number[] {
 }
 
 export const MUSIC_TRACKS: MusicTrack[] = [
-  {
-    id: "bliss",
-    namn: "Bliss",
-    artist: "XP Synth",
-    bpm: 92,
-    melody: pat([
-      [72, 4], [76, 4], [79, 4], [76, 4],
-      [74, 4], [77, 4], [81, 4], [77, 4],
-      [72, 4], [76, 4], [79, 4], [83, 4],
-      [81, 8], [79, 8],
-    ]),
-    bass: pat([
-      [48, 8], [53, 8],
-      [50, 8], [55, 8],
-      [48, 8], [55, 8],
-      [45, 8], [47, 8],
-    ]),
-  },
-  {
-    id: "defrag",
-    namn: "Defragmentering",
-    artist: "XP Synth",
-    bpm: 128,
-    melody: pat([
-      [69, 2], [72, 2], [76, 2], [72, 2], [69, 2], [72, 2], [76, 2], [79, 2],
-      [77, 2], [74, 2], [71, 2], [74, 2], [77, 2], [81, 2], [79, 4],
-      [69, 2], [72, 2], [76, 2], [72, 2], [69, 2], [72, 2], [76, 2], [79, 2],
-      [81, 4], [79, 4], [76, 4], [72, 4],
-    ]),
-    bass: pat([
-      [45, 4], [45, 4], [45, 4], [45, 4],
-      [50, 4], [50, 4], [43, 4], [43, 4],
-      [45, 4], [45, 4], [45, 4], [45, 4],
-      [41, 4], [43, 4], [45, 8],
-    ]),
-  },
-  {
-    id: "dialup",
-    namn: "Dial-up Dröm",
-    artist: "XP Synth",
-    bpm: 108,
-    melody: pat([
-      [64, 4], [67, 4], [71, 4], [74, 2], [71, 2],
-      [67, 4], [64, 4], [62, 8],
-      [64, 4], [67, 4], [72, 4], [71, 4],
-      [69, 4], [67, 4], [64, 8],
-    ]),
-    bass: pat([
-      [40, 8], [43, 8],
-      [36, 8], [38, 8],
-      [40, 8], [45, 8],
-      [38, 8], [43, 8],
-    ]),
-  },
+  // MP3 tracks
+  { id: "two-princes", namn: "Two Princes", artist: "Spin Doctors", filePath: "/assets/music/Spin Doctors - Two Princes.mp3" },
+  { id: "dreams", namn: "Dreams", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Dreams.mp3" },
+  { id: "linger", namn: "Linger", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Linger.mp3" },
+  { id: "loser", namn: "Loser", artist: "Beck", filePath: "/assets/music/Beck - Loser (Official Music Video).mp3" },
+  { id: "freestyler", namn: "Freestyler", artist: "Bomfunk MC's", filePath: "/assets/music/Bomfunk MC's - Freestyler (Video Original Version).mp3" },
+  { id: "hedonism", namn: "Hedonism", artist: "Skunk Anansie", filePath: "/assets/music/Skunk Anansie - Hedonism.mp3" },
+  { id: "girls-and-boys", namn: "Girls and Boys", artist: "Blur", filePath: "/assets/music/Blur - Girls And Boys (Official Music Video).mp3" },
+  { id: "song2", namn: "Song 2", artist: "Blur", filePath: "/assets/music/Blur - Song 2 (Official Music Video).mp3" },
+  { id: "charmless-man", namn: "Charmless Man", artist: "Blur", filePath: "/assets/music/Blur - Charmless Man (Official Music Video).mp3" },
+  { id: "big-in-japan", namn: "Big in Japan", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Big In Japan (Official Video).mp3" },
+  { id: "lords-of-the-boards", namn: "Lords Of The Boards", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Lords Of The Boards (official video).mp3" },
+  { id: "common-people", namn: "Common People", artist: "Pulp", filePath: "/assets/music/Pulp - Common People.mp3" },
+  { id: "basket-case", namn: "Basket Case", artist: "Green Day", filePath: "/assets/music/Green Day - Basket Case [Official Music Video].mp3" },
+  { id: "scar-tissue", namn: "Scar Tissue", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Scar Tissue [Official Music Video].mp3" },
+  { id: "under-the-bridge", namn: "Under The Bridge", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Under The Bridge [Official Music Video].mp3" },
+  { id: "ironic", namn: "Ironic", artist: "Alanis Morissette", filePath: "/assets/music/Alanis Morissette - Ironic (Official 4K Music Video).mp3" },
+  { id: "mr-jones", namn: "Mr. Jones", artist: "Counting Crows", filePath: "/assets/music/Counting Crows - Mr. Jones (Official Music Video).mp3" },
+  { id: "3am", namn: "3AM", artist: "Matchbox Twenty", filePath: "/assets/music/Matchbox Twenty - 3AM (Official Video).mp3" },
+  { id: "friday", namn: "Friday I'm In Love", artist: "The Cure", filePath: "/assets/music/The Cure - Friday I'm In Love.mp3" },
+  { id: "narcotic", namn: "Narcotic", artist: "Liquido", filePath: "/assets/music/Liquido - Narcotic (HD).mp3" },
 ];
 
 type TickCb = (currentSec: number, lengthSec: number) => void;
@@ -190,6 +158,8 @@ export class MusicEngine {
   private secPerStep = 0.1;
   private onTick?: TickCb;
   playing = false;
+  private audioEl: HTMLAudioElement | null = null;
+  private rafRef: number | null = null;
 
   constructor(ac: AudioContext) {
     this.ac = ac;
@@ -200,20 +170,24 @@ export class MusicEngine {
     this.master.connect(this.analyser);
     this.analyser.connect(ac.destination);
     this.track = MUSIC_TRACKS[0];
-    this.computeStep();
+    if (!this.track.filePath) {
+      this.computeStep();
+    }
   }
 
   private computeStep() {
-    this.secPerStep = 60 / this.track.bpm / 4;
+    this.secPerStep = 60 / (this.track.bpm || 120) / 4;
   }
 
   getAnalyser() {
     return this.analyser;
   }
   get lengthSec() {
-    return this.track.melody.length * this.secPerStep;
+    if (this.audioEl) return this.audioEl.duration || 0;
+    return this.track.melody?.length || 0 * this.secPerStep;
   }
   get currentSec() {
+    if (this.audioEl) return this.audioEl.currentTime || 0;
     return this.step * this.secPerStep;
   }
   get currentTrack() {
@@ -228,13 +202,35 @@ export class MusicEngine {
     const wasPlaying = this.playing;
     this.stop();
     this.track = track;
-    this.computeStep();
-    this.step = 0;
+
+    if (track.filePath) {
+      if (!this.audioEl) {
+        this.audioEl = new Audio();
+        this.audioEl.addEventListener("timeupdate", () => {
+          this.onTick?.(this.audioEl?.currentTime || 0, this.audioEl?.duration || 0);
+        });
+        this.audioEl.addEventListener("ended", () => {
+          this.playing = false;
+        });
+      }
+      this.audioEl.src = track.filePath;
+      this.audioEl.volume = 0.7;
+    } else {
+      this.audioEl = null;
+      this.computeStep();
+      this.step = 0;
+    }
+
     if (wasPlaying) this.play();
   }
 
   setVolume(v: number) {
-    this.master.gain.value = Math.max(0, Math.min(1, v)) * 0.36;
+    const vol = Math.max(0, Math.min(1, v));
+    if (this.audioEl) {
+      this.audioEl.volume = vol;
+    } else {
+      this.master.gain.value = vol * 0.36;
+    }
   }
 
   private scheduleNote(midi: number, time: number, isBass: boolean) {
@@ -255,6 +251,7 @@ export class MusicEngine {
   }
 
   private scheduler = () => {
+    if (!this.track.melody || !this.track.bass) return;
     while (this.nextNoteTime < this.ac.currentTime + 0.12) {
       const i = this.step % this.track.melody.length;
       this.scheduleNote(this.track.melody[i], this.nextNoteTime, false);
@@ -267,15 +264,22 @@ export class MusicEngine {
 
   play() {
     if (this.playing) return;
-    if (this.ac.state === "suspended") void this.ac.resume();
     this.playing = true;
-    this.nextNoteTime = this.ac.currentTime + 0.05;
-    this.timer = window.setInterval(this.scheduler, 25);
+
+    if (this.audioEl) {
+      void this.audioEl.play();
+    } else {
+      if (this.ac.state === "suspended") void this.ac.resume();
+      this.nextNoteTime = this.ac.currentTime + 0.05;
+      this.timer = window.setInterval(this.scheduler, 25);
+    }
   }
 
   pause() {
     this.playing = false;
-    if (this.timer !== null) {
+    if (this.audioEl) {
+      this.audioEl.pause();
+    } else if (this.timer !== null) {
       clearInterval(this.timer);
       this.timer = null;
     }
@@ -283,17 +287,25 @@ export class MusicEngine {
 
   stop() {
     this.pause();
-    this.step = 0;
-    this.onTick?.(0, this.lengthSec);
+    if (this.audioEl) {
+      this.audioEl.currentTime = 0;
+    } else {
+      this.step = 0;
+      this.onTick?.(0, this.lengthSec);
+    }
   }
 
   seek(sec: number) {
-    this.step = Math.max(
-      0,
-      Math.min(this.track.melody.length - 1, Math.round(sec / this.secPerStep))
-    );
-    this.nextNoteTime = this.ac.currentTime + 0.02;
-    this.onTick?.(this.currentSec, this.lengthSec);
+    if (this.audioEl) {
+      this.audioEl.currentTime = sec;
+    } else {
+      this.step = Math.max(
+        0,
+        Math.min((this.track.melody?.length || 1) - 1, Math.round(sec / this.secPerStep))
+      );
+      this.nextNoteTime = this.ac.currentTime + 0.02;
+      this.onTick?.(this.currentSec, this.lengthSec);
+    }
   }
 }
 

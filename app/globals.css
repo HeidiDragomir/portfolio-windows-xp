@@ -48,7 +48,7 @@ body {
 
 body {
   font-family: var(--xp-font);
-  font-size: 11px;
+  font-size: 12px;
   color: #000;
   background: #235ad6;
   -webkit-font-smoothing: antialiased;
@@ -109,7 +109,7 @@ body {
   border-radius: 7px 7px 0 0;
   color: #fff;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55);
   background: linear-gradient(
     180deg,
@@ -202,7 +202,7 @@ body {
    =========================================================================== */
 .xp-btn {
   font-family: var(--xp-font);
-  font-size: 11px;
+  font-size: 12px;
   min-width: 70px;
   padding: 3px 10px;
   background: linear-gradient(180deg, #fdfdfd 0%, #ece9d8 45%, #d6d2bd 100%);
@@ -226,7 +226,7 @@ body {
 
 .xp-input {
   font-family: var(--xp-font);
-  font-size: 11px;
+  font-size: 12px;
   padding: 3px 4px;
   border: 1px solid #7f9db9;
   background: #fff;
@@ -335,7 +335,7 @@ body {
   max-width: 160px;
   padding: 0 6px;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   border: 1px solid #1b3f9b;
   border-radius: 3px;
   cursor: pointer;
@@ -362,7 +362,7 @@ body {
   gap: 8px;
   padding: 0 10px 0 12px;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   background: linear-gradient(180deg, #1290e9 0%, #1f8de0 40%, #1f6cc6 100%);
   border-left: 1px solid #16459e;
   box-shadow: inset 1px 0 0 #4f93f7;
@@ -381,7 +381,7 @@ body {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
-  font-size: 11px;
+  font-size: 12px;
 }
 .xp-startmenu-header {
   height: 54px;

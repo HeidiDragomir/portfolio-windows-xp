@@ -125,7 +125,7 @@ export default function MyMusic() {
 
       {/* Seek */}
       <div style={{ padding: "10px 14px", display: "flex", alignItems: "center", gap: 8 }}>
-        <span style={{ fontSize: 10, width: 32 }}>{fmt(cur)}</span>
+        <span style={{ fontSize: 11, width: 32 }}>{fmt(cur)}</span>
         <input
           type="range"
           min={0}
@@ -134,7 +134,7 @@ export default function MyMusic() {
           onChange={(e) => onSeek(Number(e.target.value))}
           style={{ flex: 1 }}
         />
-        <span style={{ fontSize: 10, width: 32, textAlign: "right" }}>{fmt(len)}</span>
+        <span style={{ fontSize: 11, width: 32, textAlign: "right" }}>{fmt(len)}</span>
       </div>
 
       {/* Transport */}
@@ -157,7 +157,7 @@ export default function MyMusic() {
         <button className="xp-btn" style={{ minWidth: 40 }} onClick={() => loadTrack(index + 1)} title="Next">
           ⏭
         </button>
-        <span style={{ marginLeft: 10, fontSize: 11 }}>🔊</span>
+        <span style={{ marginLeft: 10, fontSize: 12 }}>🔊</span>
         <input
           type="range"
           min={0}
@@ -196,8 +196,8 @@ export default function MyMusic() {
           </div>
         ))}
       </div>
-      <div style={{ padding: "4px 12px", fontSize: 10, color: "#6f9cc4" }}>
-        Synthesized demo tracks (Web Audio). Drop your own MP3s in <code>/public/assets/music/</code>.
+      <div style={{ padding: "4px 12px", fontSize: 11, color: "#6f9cc4" }}>
+        90s hits playlist
       </div>
     </div>
   );

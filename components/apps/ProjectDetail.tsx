@@ -27,7 +27,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {project.namn}
           </div>
           <div style={{ color: "#456" }}>{project.kort}</div>
-          <div style={{ color: "#888", fontSize: 10 }}>{project.ar}</div>
+          <div style={{ color: "#888", fontSize: 11 }}>{project.ar}</div>
         </div>
       </div>
 
