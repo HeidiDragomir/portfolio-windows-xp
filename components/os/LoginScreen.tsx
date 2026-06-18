@@ -76,10 +76,10 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
                 marginTop: 26,
                 fontSize: 15,
                 textShadow: "1px 1px 2px rgba(0,0,0,0.35)",
-                maxWidth: 250,
+                maxWidth: 300,
               }}
             >
-              To begin, click your user name
+              To begin the journey click on my username.
             </div>
           </div>
 
@@ -195,22 +195,22 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
           >
             ⏻
           </span>
-          <span style={{ fontSize: 12, textShadow: "1px 1px 1px rgba(0,0,0,0.35)" }}>
+          <span style={{ fontSize: 13, textShadow: "1px 1px 1px rgba(0,0,0,0.35)" }}>
             Turn off computer
           </span>
         </button>
 
         <div
           style={{
-            fontSize: 11,
-            maxWidth: 320,
+            fontSize: 13,
+            maxWidth: 450,
             textAlign: "right",
             lineHeight: 1.5,
             opacity: 0.95,
             textShadow: "1px 1px 1px rgba(0,0,0,0.3)",
           }}
         >
-          After you log on, you can explore the desktop.
+          After logging in, you can browse through the folders on my computer.
           <br />
           Every icon opens a window about me.
         </div>

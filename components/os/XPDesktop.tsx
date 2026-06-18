@@ -113,15 +113,17 @@ export default function XPDesktop() {
         />
       )}
 
-      <WindowManagerProvider>
-        <Desktop />
-        <WindowLayer />
-        <Clippy />
-        <Taskbar
-          onRequestShutdown={() => setShutdownOpen(true)}
-          onLogOff={logOff}
-        />
-      </WindowManagerProvider>
+      {phase === "running" && (
+        <WindowManagerProvider>
+          <Desktop />
+          <WindowLayer />
+          <Clippy />
+          <Taskbar
+            onRequestShutdown={() => setShutdownOpen(true)}
+            onLogOff={logOff}
+          />
+        </WindowManagerProvider>
+      )}
 
       {shutdownOpen && (
         <ShutdownDialog
