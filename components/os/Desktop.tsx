@@ -1,0 +1,58 @@
+"use client";
+
+import { useState } from "react";
+import DesktopIcon from "./DesktopIcon";
+import { DESKTOP_APPS, type AppDef } from "@/lib/apps";
+import { useWindows } from "./WindowManagerProvider";
+import { WALLPAPER } from "@/lib/icons";
+import { playClick } from "@/lib/audio";
+
+export default function Desktop() {
+  const { open } = useWindows();
+  const [selected, setSelected] = useState<string | null>(null);
+
+  function openApp(app: AppDef) {
+    playClick();
+    open({
+      id: app.id,
+      title: app.title,
+      icon: app.icon,
+      width: app.width,
+      height: app.height,
+      singleInstance: app.singleInstance,
+    });
+  }
+
+  return (
+    <div
+      className="xp-desktop"
+      style={{ backgroundImage: `url("${WALLPAPER}")` }}
+      onClick={() => setSelected(null)}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: 8,
+          left: 6,
+          display: "flex",
+          flexDirection: "column",
+          flexWrap: "wrap",
+          alignContent: "flex-start",
+          gap: 2,
+          maxHeight: "calc(100vh - 60px)",
+        }}
+      >
+        {DESKTOP_APPS.map((app) => (
+          <DesktopIcon
+            key={app.id}
+            icon={app.icon}
+            label={app.label ?? app.title}
+            selected={selected === app.id}
+            onSelect={() => setSelected(app.id)}
+            onOpen={() => openApp(app)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
