@@ -8,5 +8,6 @@ export function icon(name: string): string {
 
 export const WALLPAPER = "/assets/Wallpaper.jpg";
 export const STARTUP_SOUND = "/assets/windows-xp-startup.mp3";
-export const CV_PDF = "/assets/CV.pdf";
+export const CV_EN = "/assets/CV - EN.pdf";
+export const CV_SV = "/assets/CV - SV.pdf";
 export const AVATAR = "/assets/avatar.JPG";
