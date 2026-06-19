@@ -141,13 +141,13 @@ export const moreRepos: MoreRepo[] = [
     url: "https://github.com/HeidiDragomir/loki-prometheus-grafana-kubernetes",
   },
   {
-    namn: "OllamaAIWebAPI",
-    sprak: "C#",
-    url: "https://github.com/HeidiDragomir/OllamaAIWebAPI",
+    namn: "portfolio-windows-xp",
+    sprak: "TypeScript",
+    url: "https://github.com/HeidiDragomir/portfolio-windows-xp",
   },
   {
-    namn: "weather-app-Next.js",
+    namn: "prescription-helper",
     sprak: "TypeScript",
-    url: "https://github.com/HeidiDragomir/weather-app-Next.js",
+    url: "https://github.com/HeidiDragomir/prescription-helper",
   },
 ];

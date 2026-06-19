@@ -59,8 +59,9 @@ export default function MyProjects() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
-          gap: 8,
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          gap: 12,
+          maxWidth: "100%",
         }}
       >
         {projects.map((p) => (
