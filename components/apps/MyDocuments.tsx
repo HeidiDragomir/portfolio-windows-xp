@@ -6,49 +6,49 @@ import { experience } from "@/lib/data/experience";
 import { education, languages } from "@/lib/data/education";
 import { icon } from "@/lib/icons";
 
-type Tab = "erfarenhet" | "utbildning";
+type Tab = "experience" | "education";
 
 export default function MyDocuments() {
-  const [tab, setTab] = useState<Tab>("erfarenhet");
+  const [tab, setTab] = useState<Tab>("experience");
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <ExplorerShell
       address="My Documents"
-      statusLeft={tab === "erfarenhet" ? `${experience.length} items` : `${education.length} items`}
+      statusLeft={tab === "experience" ? `${experience.length} items` : `${education.length} items`}
       sidebar={
         <>
           <SidebarCard title="Folders">
             <div
               onClick={() => {
-                setTab("erfarenhet");
+                setTab("experience");
                 setOpen(0);
               }}
-              className={`cursor-pointer${tab === "erfarenhet" ? " font-bold" : ""}`}
+              className={`cursor-pointer${tab === "experience" ? " font-bold" : ""}`}
             >
               📁 Work Experience
             </div>
             <div
               onClick={() => {
-                setTab("utbildning");
+                setTab("education");
                 setOpen(null);
               }}
-              className={`cursor-pointer${tab === "utbildning" ? " font-bold" : ""}`}
+              className={`cursor-pointer${tab === "education" ? " font-bold" : ""}`}
             >
               📁 Education
             </div>
           </SidebarCard>
           <SidebarCard title="Languages">
             {languages.map((l) => (
-              <div key={l.sprak}>
-                <strong>{l.sprak}</strong> – {l.niva}
+              <div key={l.language}>
+                <strong>{l.language}</strong> – {l.level}
               </div>
             ))}
           </SidebarCard>
         </>
       }
     >
-      {tab === "erfarenhet" && (
+      {tab === "experience" && (
         <div className="selectable flex flex-col gap-2">
           {experience.map((e, i) => (
             <div key={i} className="border border-[#d6d2bd] bg-[#fbfaf5]">
@@ -59,24 +59,24 @@ export default function MyDocuments() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={icon("Generic Text Document.png")} alt="" width={28} height={28} draggable={false} />
                 <span className="flex-1">
-                  <strong>{e.roll}</strong>
+                  <strong>{e.role}</strong>
                   <br />
                   <span className="text-[#555]">
-                    {e.foretag} · {e.ort}
+                    {e.company} · {e.location}
                   </span>
                 </span>
                 <span className="text-[#33558c] whitespace-nowrap">{e.period}</span>
               </button>
               {open === i && (
                 <div className="pt-1 pr-3 pb-3 pl-12">
-                  <p className="mt-1 mb-2 text-[#333]">{e.beskrivning}</p>
+                  <p className="mt-1 mb-2 text-[#333]">{e.description}</p>
                   <ul className="mt-0 mb-2.5 pl-4.5 leading-[1.6]">
-                    {e.punkter.map((p, j) => (
+                    {e.bullets.map((p, j) => (
                       <li key={j}>{p}</li>
                     ))}
                   </ul>
                   <div className="flex flex-wrap gap-1">
-                    {e.teknikstack.map((t) => (
+                    {e.techStack.map((t) => (
                       <span
                         key={t}
                         className="text-[11px] bg-[#dbe7fb] border border-[#b6cdf0] rounded-[3px] px-1.5 py-px"
@@ -92,7 +92,7 @@ export default function MyDocuments() {
         </div>
       )}
 
-      {tab === "utbildning" && (
+      {tab === "education" && (
         <div className="selectable flex flex-col gap-2.5">
           {education.map((e, i) => (
             <div
@@ -102,10 +102,10 @@ export default function MyDocuments() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={icon("Help and Support.png")} alt="" width={30} height={30} draggable={false} />
               <span className="flex-1">
-                <strong>{e.utbildning}</strong>
+                <strong>{e.program}</strong>
                 <br />
                 <span className="text-[#555]">
-                  {e.skola} · {e.ort}
+                  {e.school} · {e.location}
                 </span>
               </span>
               <span className="text-[#33558c] whitespace-nowrap">{e.period}</span>

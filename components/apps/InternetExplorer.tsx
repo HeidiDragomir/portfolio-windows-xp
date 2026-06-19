@@ -84,12 +84,12 @@ export default function InternetExplorer() {
           <div className="text-[26px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,.4)]">
             heididragomir.dev
           </div>
-          <div className="opacity-90">{profile.titel}</div>
+          <div className="opacity-90">{profile.title}</div>
         </div>
 
         <div className="p-6 leading-relaxed">
           <p className="mt-0">
-            Welcome! This is {profile.namn}&apos;s home page. Use the links below to visit my
+            Welcome! This is {profile.name}&apos;s home page. Use the links below to visit my
             profiles (they open in a new tab).
           </p>
 
@@ -113,9 +113,9 @@ export default function InternetExplorer() {
             {projects.map((p) => (
               <li key={p.id}>
                 <a href={p.github} target="_blank" rel="noopener noreferrer">
-                  {p.namn}
+                  {p.name}
                 </a>{" "}
-                <span className="text-[#777]">– {p.kort}</span>
+                <span className="text-[#777]">– {p.short}</span>
               </li>
             ))}
           </ul>

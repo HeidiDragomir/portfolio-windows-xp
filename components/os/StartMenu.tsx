@@ -40,14 +40,14 @@ export default function StartMenu({ onClose, onLogOff, onTurnOff }: Props) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={AVATAR}
-          alt={profile.namn}
+          alt={profile.name}
           width={48}
           height={48}
           draggable={false}
           className={`w-10 h-10 object-cover rounded-[5px] border-2 border-white bg-[#9db8e8] ${hover ? "[box-shadow:0_0_8px_rgba(255,255,255,0.7)]" : "[box-shadow:0_1px_3px_rgba(0,0,0,0.3)]"}`}
         />
 
-        {profile.namn}
+        {profile.name}
       </div>
 
       <div className="xp-startmenu-cols">

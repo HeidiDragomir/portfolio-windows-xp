@@ -6,21 +6,21 @@ import { profile } from "@/lib/data/profile";
 const DEFAULT_TEXT = `About me.txt
 ============================
 
-${profile.namn}
-${profile.titel}
-${profile.ort}
+${profile.name}
+${profile.title}
+${profile.location}
 
 ----------------------------
 
-${profile.profil}
+${profile.bio}
 
-${profile.oppenFor}
+${profile.openTo}
 
 ----------------------------
 
 Contact:
   Email:    ${profile.email}
-  Phone:    ${profile.telefon}
+  Phone:    ${profile.phone}
   LinkedIn: ${profile.linkedin}
   GitHub:   ${profile.github}
 

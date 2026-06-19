@@ -1,26 +1,26 @@
 export interface Project {
   id: string;
-  namn: string;
+  name: string;
   /** Short one-liner shown in Explorer list. */
-  kort: string;
-  beskrivning: string;
-  ar: string;
-  teknikstack: string[];
-  punkter: string[];
+  short: string;
+  description: string;
+  year: string;
+  techStack: string[];
+  bullets: string[];
   github: string;
   /** Icon filename from the XP icon pack used for the "file". */
-  ikon: string;
+  icon: string;
 }
 
 export const projects: Project[] = [
   {
     id: "alert-management-api",
-    namn: "Alert Management API",
-    kort: "ASP.NET Core backend API focused on operability and observability.",
-    ar: "2026",
-    beskrivning:
+    name: "Alert Management API",
+    short: "ASP.NET Core backend API focused on operability and observability.",
+    year: "2026",
+    description:
       "A backend API for managing emergency alerts across geographic areas. Users can create, publish and cancel alerts — with built-in safeguards preventing multiple active alerts in the same area at once. Built with a focus on operability, system monitoring and stable integration.",
-    teknikstack: [
+    techStack: [
       "C#",
       ".NET 9",
       "ASP.NET Core",
@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "Serilog",
       "Prometheus",
     ],
-    punkter: [
+    bullets: [
       "REST API in ASP.NET Core with a clear layered structure and separated business logic.",
       "Self-validating domain entity enforcing state transitions (Draft → Published → Cancelled).",
       "Real-time communication with SignalR for event-based updates.",
@@ -40,16 +40,16 @@ export const projects: Project[] = [
       "Dual enforcement of area uniqueness: service-level validation + a partial database index.",
     ],
     github: "https://github.com/HeidiDragomir/alert-management-api",
-    ikon: "Alert.png",
+    icon: "Alert.png",
   },
   {
     id: "ecommerce-microservices",
-    namn: "ECommerce.Microservices",
-    kort: "Microservices-based e-commerce in .NET 9 (thesis project).",
-    ar: "2026",
-    beskrivning:
+    name: "ECommerce.Microservices",
+    short: "Microservices-based e-commerce in .NET 9 (thesis project).",
+    year: "2026",
+    description:
       "A bachelor's thesis project demonstrating microservices architecture in .NET 9. It implements an e-commerce system with three independent services (Customer, Product, Order) unified behind an API Gateway.",
-    teknikstack: [
+    techStack: [
       "C#",
       ".NET 9",
       "Clean Architecture",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
       "Ocelot",
       "OpenAPI",
     ],
-    punkter: [
+    bullets: [
       "Clean Architecture with Domain, Application, Infrastructure and Presentation layers.",
       "CQRS separating read and write operations through dedicated handlers.",
       "Repository pattern abstracting data access.",
@@ -68,16 +68,16 @@ export const projects: Project[] = [
       "Order validation that checks customer, product and stock before persistence.",
     ],
     github: "https://github.com/HeidiDragomir/ECommerce.Microservices",
-    ikon: "My Network Places.png",
+    icon: "My Network Places.png",
   },
   {
     id: "innovia-hub-ai",
-    namn: "Innovia Hub AI",
-    kort: "Coworking booking platform with an AI-powered booking assistant.",
-    ar: "2025",
-    beskrivning:
+    name: "Innovia Hub AI",
+    short: "Coworking booking platform with an AI-powered booking assistant.",
+    year: "2025",
+    description:
       "A resource-management platform for a coworking space where members can book desks, meeting rooms, VR headsets and an AI server in real time — with intelligent help from a smart booking assistant.",
-    teknikstack: [
+    techStack: [
       "React",
       "TypeScript",
       "Tailwind CSS",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
       "Azure",
       "Netlify",
     ],
-    punkter: [
+    bullets: [
       "Real-time booking system with instant availability updates (SignalR).",
       "Smart booking assistant that analyzes booking patterns and suggests times/resources via OpenAI.",
       "Role-based access for members and administrators (JWT).",
@@ -97,16 +97,16 @@ export const projects: Project[] = [
       "Cloud-based deployment with CI/CD: Azure App Service (backend) and Netlify (frontend).",
     ],
     github: "https://github.com/HeidiDragomir/innovia-hub-AI",
-    ikon: "Chip.png",
+    icon: "Chip.png",
   },
   {
     id: "furever-friends",
-    namn: "FurEver Friends",
-    kort: "Web & mobile platform connecting pet owners.",
-    ar: "2025",
-    beskrivning:
+    name: "FurEver Friends",
+    short: "Web & mobile platform connecting pet owners.",
+    year: "2025",
+    description:
       "A platform connecting pet owners in a shared digital community. The app makes it easy to find pet services, meet like-minded people, discover local events, adopt animals and match with pet sitters.",
-    teknikstack: [
+    techStack: [
       "React",
       "TypeScript",
       "Tailwind CSS",
@@ -116,38 +116,38 @@ export const projects: Project[] = [
       "Leaflet",
       "Nominatim",
     ],
-    punkter: [
+    bullets: [
       "Location-based search for pet services with map integration (Leaflet + Nominatim).",
       "Community features and local events for animal lovers.",
       "Pet adoption and pet-sitter matching.",
       "RESTful API architecture with secure JWT authentication.",
     ],
     github: "https://github.com/HeidiDragomir/furever-friends",
-    ikon: "Search for people.png",
+    icon: "Search for people.png",
   },
 ];
 
 export interface MoreRepo {
-  namn: string;
-  sprak: string;
+  name: string;
+  language: string;
   url: string;
 }
 
 export const moreRepos: MoreRepo[] = [
-  { namn: "Stickify", sprak: "C#", url: "https://github.com/HeidiDragomir/Stickify" },
+  { name: "Stickify", language: "C#", url: "https://github.com/HeidiDragomir/Stickify" },
   {
-    namn: "loki-prometheus-grafana-kubernetes",
-    sprak: "DevOps",
+    name: "loki-prometheus-grafana-kubernetes",
+    language: "DevOps",
     url: "https://github.com/HeidiDragomir/loki-prometheus-grafana-kubernetes",
   },
   {
-    namn: "portfolio-windows-xp",
-    sprak: "TypeScript",
+    name: "portfolio-windows-xp",
+    language: "TypeScript",
     url: "https://github.com/HeidiDragomir/portfolio-windows-xp",
   },
   {
-    namn: "prescription-helper",
-    sprak: "TypeScript",
+    name: "prescription-helper",
+    language: "TypeScript",
     url: "https://github.com/HeidiDragomir/prescription-helper",
   },
 ];

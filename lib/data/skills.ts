@@ -1,18 +1,18 @@
 export interface SkillGroup {
-  kategori: string;
+  category: string;
   /** Icon filename from the Windows XP icon pack, used as the "drive" icon. */
-  ikon: string;
+  icon: string;
   /** Fake drive letter for the My Computer metaphor. */
-  enhet: string;
-  fardigheter: string[];
+  drive: string;
+  skills: string[];
 }
 
 export const skills: SkillGroup[] = [
   {
-    kategori: "Backend",
-    ikon: "Local Disk.png",
-    enhet: "C:",
-    fardigheter: [
+    category: "Backend",
+    icon: "Local Disk.png",
+    drive: "C:",
+    skills: [
       "C#",
       ".NET",
       "ASP.NET Core",
@@ -26,10 +26,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    kategori: "Architecture",
-    ikon: "Local Disk.png",
-    enhet: "D:",
-    fardigheter: [
+    category: "Architecture",
+    icon: "Local Disk.png",
+    drive: "D:",
+    skills: [
       "Microservices",
       "Clean Architecture",
       "Distributed systems",
@@ -39,16 +39,16 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    kategori: "Databases",
-    ikon: "Local Disk.png",
-    enhet: "E:",
-    fardigheter: ["MS SQL", "T-SQL", "MongoDB", "MySQL", "SQLite", "PostgreSQL"],
+    category: "Databases",
+    icon: "Local Disk.png",
+    drive: "E:",
+    skills: ["MS SQL", "T-SQL", "MongoDB", "MySQL", "SQLite", "PostgreSQL"],
   },
   {
-    kategori: "Frontend",
-    ikon: "Local Disk.png",
-    enhet: "F:",
-    fardigheter: [
+    category: "Frontend",
+    icon: "Local Disk.png",
+    drive: "F:",
+    skills: [
       "React",
       "Next.js",
       "JavaScript",
@@ -61,10 +61,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    kategori: "Cloud & DevOps",
-    ikon: "Network Drive.png",
-    enhet: "G:",
-    fardigheter: [
+    category: "Cloud & DevOps",
+    icon: "Network Drive.png",
+    drive: "G:",
+    skills: [
       "Azure (basic)",
       "Azure DevOps",
       "Docker",
@@ -77,10 +77,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    kategori: "AI",
-    ikon: "Optical Drive.png",
-    enhet: "H:",
-    fardigheter: [
+    category: "AI",
+    icon: "Optical Drive.png",
+    drive: "H:",
+    skills: [
       "AI integrations via OpenAI API",
       "Claude Code",
       "Codex",
@@ -89,10 +89,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    kategori: "Other",
-    ikon: "Removable Media.png",
-    enhet: "I:",
-    fardigheter: [
+    category: "Other",
+    icon: "Removable Media.png",
+    drive: "I:",
+    skills: [
       "Linux (basic)",
       "Bash",
       "Test-driven development (TDD)",

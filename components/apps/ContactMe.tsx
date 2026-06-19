@@ -39,7 +39,7 @@ export default function ContactMe() {
       <div className="p-2.5 flex flex-col gap-1.5">
         <Row label="To:">
           <div className="xp-input flex-1 bg-[#f3f1e7]">
-            {profile.namn} &lt;{profile.email}&gt;
+            {profile.name} &lt;{profile.email}&gt;
           </div>
         </Row>
         <Row label="From:">
@@ -70,8 +70,8 @@ export default function ContactMe() {
       {/* Contact details footer */}
       <div className="selectable px-3 py-2 bg-[#ece9d8] border-t border-[#b9b59f] flex flex-wrap gap-4">
         <span>✉️ {profile.email}</span>
-        <span>📞 {profile.telefon}</span>
-        <span>📍 {profile.ort}</span>
+        <span>📞 {profile.phone}</span>
+        <span>📍 {profile.location}</span>
         <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
           LinkedIn
         </a>

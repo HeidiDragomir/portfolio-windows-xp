@@ -1,38 +1,38 @@
 export interface Education {
-  utbildning: string;
-  skola: string;
-  ort: string;
+  program: string;
+  school: string;
+  location: string;
   period: string;
 }
 
 export const education: Education[] = [
   {
-    utbildning: "Web Developer .NET",
-    skola: "Jönköping University",
-    ort: "Jönköping",
+    program: "Web Developer .NET",
+    school: "Jönköping University",
+    location: "Jönköping",
     period: "2024 - Jun 2026",
   },
   {
-    utbildning: "Fullstack Web Developer",
-    skola: "Chas Academy",
-    ort: "Stockholm",
+    program: "Fullstack Web Developer",
+    school: "Chas Academy",
+    location: "Stockholm",
     period: "2021 - 2023",
   },
   {
-    utbildning: "Faculty of Geography",
-    skola: '"Babeș-Bolyai" University',
-    ort: "Romania",
+    program: "Faculty of Geography",
+    school: '"Babeș-Bolyai" University',
+    location: "Romania",
     period: "1997 - 2001",
   },
 ];
 
 export interface LanguageSkill {
-  sprak: string;
-  niva: string;
+  language: string;
+  level: string;
 }
 
 export const languages: LanguageSkill[] = [
-  { sprak: "Swedish", niva: "Professional proficiency" },
-  { sprak: "English", niva: "Professional proficiency" },
-  { sprak: "Romanian", niva: "Native" },
+  { language: "Swedish", level: "Professional proficiency" },
+  { language: "English", level: "Professional proficiency" },
+  { language: "Romanian", level: "Native" },
 ];

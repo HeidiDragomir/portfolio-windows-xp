@@ -40,13 +40,13 @@ export default function MyProjects() {
           <SidebarCard title="More repositories">
             {moreRepos.map((r) => (
               <a
-                key={r.namn}
+                key={r.name}
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0c327d] no-underline block"
               >
-                {r.namn} <span className="text-[#5a78b0]">({r.sprak})</span>
+                {r.name} <span className="text-[#5a78b0]">({r.language})</span>
               </a>
             ))}
           </SidebarCard>
@@ -62,7 +62,7 @@ export default function MyProjects() {
         {projects.map((p) => (
           <button
             key={p.id}
-            onDoubleClick={() => open({ id: `project-${p.id}`, title: p.namn, icon: icon(p.ikon), width: 560, height: 480 })}
+            onDoubleClick={() => open({ id: `project-${p.id}`, title: p.name, icon: icon(p.icon), width: 560, height: 480 })}
             onClick={(e) => {
               // single click selects (visual only); double-click opens
               (e.currentTarget as HTMLElement).focus();
@@ -71,9 +71,9 @@ export default function MyProjects() {
             className="flex flex-col items-center gap-1.5 p-2.5 border border-transparent bg-transparent cursor-pointer text-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={icon(p.ikon)} alt="" width={44} height={44} draggable={false} />
-            <span className="font-bold">{p.namn}</span>
-            <span className="text-[#777] text-[11px]">{p.kort}</span>
+            <img src={icon(p.icon)} alt="" width={44} height={44} draggable={false} />
+            <span className="font-bold">{p.name}</span>
+            <span className="text-[#777] text-[11px]">{p.short}</span>
           </button>
         ))}
       </div>

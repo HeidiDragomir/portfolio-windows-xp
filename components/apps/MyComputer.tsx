@@ -8,7 +8,7 @@ import { icon } from "@/lib/icons";
 
 export default function MyComputer() {
   const [selected, setSelected] = useState<string | null>(null);
-  const current = skills.find((s) => s.kategori === selected) ?? null;
+  const current = skills.find((s) => s.category === selected) ?? null;
 
   return (
     <ExplorerShell
@@ -27,15 +27,15 @@ export default function MyComputer() {
           <SidebarCard title="Details">
             {current ? (
               <>
-                <strong>{current.kategori}</strong>
+                <strong>{current.category}</strong>
                 <div className="text-[#33558c]">
-                  {current.fardigheter.length} skills
+                  {current.skills.length} skills
                 </div>
               </>
             ) : (
               <>
-                <strong>{profile.namn}</strong>
-                <div className="text-[#33558c]">{profile.titel}</div>
+                <strong>{profile.name}</strong>
+                <div className="text-[#33558c]">{profile.title}</div>
               </>
             )}
           </SidebarCard>
@@ -48,16 +48,16 @@ export default function MyComputer() {
       <div className="grid gap-2.5 mb-4.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
         {skills.map((s) => (
           <button
-            key={s.kategori}
-            onClick={() => setSelected(s.kategori)}
-            className={`flex gap-2 items-center p-1.5 cursor-pointer text-left${selected === s.kategori ? " border border-dotted border-[#33558c] bg-[#e8effb]" : " border border-transparent bg-transparent"}`}
+            key={s.category}
+            onClick={() => setSelected(s.category)}
+            className={`flex gap-2 items-center p-1.5 cursor-pointer text-left${selected === s.category ? " border border-dotted border-[#33558c] bg-[#e8effb]" : " border border-transparent bg-transparent"}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={icon(s.ikon)} alt="" width={34} height={34} draggable={false} />
+            <img src={icon(s.icon)} alt="" width={34} height={34} draggable={false} />
             <span>
-              <strong>{s.kategori}</strong>
+              <strong>{s.category}</strong>
               <br />
-              <span className="text-[#666]">Local Disk ({s.enhet})</span>
+              <span className="text-[#666]">Local Disk ({s.drive})</span>
             </span>
           </button>
         ))}
@@ -66,10 +66,10 @@ export default function MyComputer() {
       {current && (
         <div className="selectable border-t border-[#d6d2bd] pt-2.5">
           <div className="font-bold mb-1.5">
-            Contents of {current.enhet} – {current.kategori}
+            Contents of {current.drive} – {current.category}
           </div>
           <ul className="m-0 pl-4.5 leading-[1.8] columns-2">
-            {current.fardigheter.map((f) => (
+            {current.skills.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>

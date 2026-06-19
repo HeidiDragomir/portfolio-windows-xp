@@ -109,7 +109,7 @@ export function playStartupSound() {
 
 export interface MusicTrack {
   id: string;
-  namn: string;
+  name: string;
   artist: string;
   filePath?: string; // MP3 file path, if present use real audio instead of synth
   bpm?: number;
@@ -131,26 +131,26 @@ function pat(seq: Array<[number, number]>): number[] {
 
 export const MUSIC_TRACKS: MusicTrack[] = [
   // MP3 tracks
-  { id: "two-princes", namn: "Two Princes", artist: "Spin Doctors", filePath: "/assets/music/Spin Doctors - Two Princes.mp3" },
-  { id: "dreams", namn: "Dreams", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Dreams.mp3" },
-  { id: "linger", namn: "Linger", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Linger.mp3" },
-  { id: "loser", namn: "Loser", artist: "Beck", filePath: "/assets/music/Beck - Loser (Official Music Video).mp3" },
-  { id: "freestyler", namn: "Freestyler", artist: "Bomfunk MC's", filePath: "/assets/music/Bomfunk MC's - Freestyler (Video Original Version).mp3" },
-  { id: "hedonism", namn: "Hedonism", artist: "Skunk Anansie", filePath: "/assets/music/Skunk Anansie - Hedonism.mp3" },
-  { id: "girls-and-boys", namn: "Girls and Boys", artist: "Blur", filePath: "/assets/music/Blur - Girls And Boys (Official Music Video).mp3" },
-  { id: "song2", namn: "Song 2", artist: "Blur", filePath: "/assets/music/Blur - Song 2 (Official Music Video).mp3" },
-  { id: "charmless-man", namn: "Charmless Man", artist: "Blur", filePath: "/assets/music/Blur - Charmless Man (Official Music Video).mp3" },
-  { id: "big-in-japan", namn: "Big in Japan", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Big In Japan (Official Video).mp3" },
-  { id: "lords-of-the-boards", namn: "Lords Of The Boards", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Lords Of The Boards (official video).mp3" },
-  { id: "common-people", namn: "Common People", artist: "Pulp", filePath: "/assets/music/Pulp - Common People.mp3" },
-  { id: "basket-case", namn: "Basket Case", artist: "Green Day", filePath: "/assets/music/Green Day - Basket Case [Official Music Video].mp3" },
-  { id: "scar-tissue", namn: "Scar Tissue", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Scar Tissue [Official Music Video].mp3" },
-  { id: "under-the-bridge", namn: "Under The Bridge", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Under The Bridge [Official Music Video].mp3" },
-  { id: "ironic", namn: "Ironic", artist: "Alanis Morissette", filePath: "/assets/music/Alanis Morissette - Ironic (Official 4K Music Video).mp3" },
-  { id: "mr-jones", namn: "Mr. Jones", artist: "Counting Crows", filePath: "/assets/music/Counting Crows - Mr. Jones (Official Music Video).mp3" },
-  { id: "3am", namn: "3AM", artist: "Matchbox Twenty", filePath: "/assets/music/Matchbox Twenty - 3AM (Official Video).mp3" },
-  { id: "friday", namn: "Friday I'm In Love", artist: "The Cure", filePath: "/assets/music/The Cure - Friday I'm In Love.mp3" },
-  { id: "narcotic", namn: "Narcotic", artist: "Liquido", filePath: "/assets/music/Liquido - Narcotic (HD).mp3" },
+  { id: "two-princes", name: "Two Princes", artist: "Spin Doctors", filePath: "/assets/music/Spin Doctors - Two Princes.mp3" },
+  { id: "dreams", name: "Dreams", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Dreams.mp3" },
+  { id: "linger", name: "Linger", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Linger.mp3" },
+  { id: "loser", name: "Loser", artist: "Beck", filePath: "/assets/music/Beck - Loser (Official Music Video).mp3" },
+  { id: "freestyler", name: "Freestyler", artist: "Bomfunk MC's", filePath: "/assets/music/Bomfunk MC's - Freestyler (Video Original Version).mp3" },
+  { id: "hedonism", name: "Hedonism", artist: "Skunk Anansie", filePath: "/assets/music/Skunk Anansie - Hedonism.mp3" },
+  { id: "girls-and-boys", name: "Girls and Boys", artist: "Blur", filePath: "/assets/music/Blur - Girls And Boys (Official Music Video).mp3" },
+  { id: "song2", name: "Song 2", artist: "Blur", filePath: "/assets/music/Blur - Song 2 (Official Music Video).mp3" },
+  { id: "charmless-man", name: "Charmless Man", artist: "Blur", filePath: "/assets/music/Blur - Charmless Man (Official Music Video).mp3" },
+  { id: "big-in-japan", name: "Big in Japan", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Big In Japan (Official Video).mp3" },
+  { id: "lords-of-the-boards", name: "Lords Of The Boards", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Lords Of The Boards (official video).mp3" },
+  { id: "common-people", name: "Common People", artist: "Pulp", filePath: "/assets/music/Pulp - Common People.mp3" },
+  { id: "basket-case", name: "Basket Case", artist: "Green Day", filePath: "/assets/music/Green Day - Basket Case [Official Music Video].mp3" },
+  { id: "scar-tissue", name: "Scar Tissue", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Scar Tissue [Official Music Video].mp3" },
+  { id: "under-the-bridge", name: "Under The Bridge", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Under The Bridge [Official Music Video].mp3" },
+  { id: "ironic", name: "Ironic", artist: "Alanis Morissette", filePath: "/assets/music/Alanis Morissette - Ironic (Official 4K Music Video).mp3" },
+  { id: "mr-jones", name: "Mr. Jones", artist: "Counting Crows", filePath: "/assets/music/Counting Crows - Mr. Jones (Official Music Video).mp3" },
+  { id: "3am", name: "3AM", artist: "Matchbox Twenty", filePath: "/assets/music/Matchbox Twenty - 3AM (Official Video).mp3" },
+  { id: "friday", name: "Friday I'm In Love", artist: "The Cure", filePath: "/assets/music/The Cure - Friday I'm In Love.mp3" },
+  { id: "narcotic", name: "Narcotic", artist: "Liquido", filePath: "/assets/music/Liquido - Narcotic (HD).mp3" },
 ];
 
 type TickCb = (currentSec: number, lengthSec: number) => void;

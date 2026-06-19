@@ -113,7 +113,7 @@ export default function MyMusic() {
 
       {/* Now playing */}
       <div className="px-3.5">
-        <div className="text-[15px] font-bold text-white">{track.namn}</div>
+        <div className="text-[15px] font-bold text-white">{track.name}</div>
         <div className="text-[#7fb0dd]">{track.artist}</div>
       </div>
 
@@ -166,7 +166,7 @@ export default function MyMusic() {
           >
             <span>
               {i === index && playing ? "▶ " : ""}
-              {t.namn} <span className="text-[#7fb0dd]">– {t.artist}</span>
+              {t.name} <span className="text-[#7fb0dd]">– {t.artist}</span>
             </span>
           </div>
         ))}

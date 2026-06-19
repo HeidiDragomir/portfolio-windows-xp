@@ -84,7 +84,7 @@ export default function Paint() {
           ))}
         </div>
         <button className="xp-btn" style={{ minWidth: "auto", width: "100%", padding: "2px 4px" }} onClick={clear}>
-          Rensa
+          Clear
         </button>
       </div>
 

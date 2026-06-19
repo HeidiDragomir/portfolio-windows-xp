@@ -5,12 +5,12 @@ import { icon } from "@/lib/icons";
 
 /** Playful "discarded" items — technologies and habits left behind. */
 const discarded = [
-  { namn: "jquery-spaghetti.js", typ: "JavaScript File", ikon: "Generic Text Document.png" },
-  { namn: "internet-explorer-hacks.css", typ: "Style Sheet", ikon: "CSS.png" },
-  { namn: "console.log everywhere.txt", typ: "Text Document", ikon: "Generic Text Document.png" },
-  { namn: "works-on-my-machine.docx", typ: "Document", ikon: "Wordpad.png" },
-  { namn: "magic-numbers.bat", typ: "Batch File", ikon: "BAT.png" },
-  { namn: "TODO fix later.txt", typ: "Text Document", ikon: "Generic Text Document.png" },
+  { name: "jquery-spaghetti.js", typ: "JavaScript File", icon: "Generic Text Document.png" },
+  { name: "internet-explorer-hacks.css", typ: "Style Sheet", icon: "CSS.png" },
+  { name: "console.log everywhere.txt", typ: "Text Document", icon: "Generic Text Document.png" },
+  { name: "works-on-my-machine.docx", typ: "Document", icon: "Wordpad.png" },
+  { name: "magic-numbers.bat", typ: "Batch File", icon: "BAT.png" },
+  { name: "TODO fix later.txt", typ: "Text Document", icon: "Generic Text Document.png" },
 ];
 
 export default function RecycleBin() {
@@ -38,12 +38,12 @@ export default function RecycleBin() {
       >
         {discarded.map((d) => (
           <div
-            key={d.namn}
+            key={d.name}
             className="flex flex-col items-center gap-1.5 p-2 text-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={icon(d.ikon)} alt="" width={40} height={40} draggable={false} className="opacity-85" />
-            <span>{d.namn}</span>
+            <img src={icon(d.icon)} alt="" width={40} height={40} draggable={false} className="opacity-85" />
+            <span>{d.name}</span>
             <span className="text-[#888] text-[11px]">{d.typ}</span>
           </div>
         ))}

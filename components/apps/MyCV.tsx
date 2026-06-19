@@ -41,7 +41,7 @@ export default function MyCV() {
         </div>
 
         <span className="text-[#666] ml-2">
-          CV – {profile.namn} ({langLabel})
+          CV – {profile.name} ({langLabel})
         </span>
       </div>
 

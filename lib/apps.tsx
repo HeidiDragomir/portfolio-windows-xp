@@ -165,8 +165,8 @@ export const PROJECT_APPS: AppDef[] = projects.map((p) => {
   ProjectWindow.displayName = `Project_${p.id}`;
   return {
     id: `project-${p.id}`,
-    title: p.namn,
-    icon: icon(p.ikon),
+    title: p.name,
+    icon: icon(p.icon),
     component: ProjectWindow,
     width: 560,
     height: 480,

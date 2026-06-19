@@ -67,7 +67,7 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={AVATAR}
-                  alt={profile.namn}
+                  alt={profile.name}
                   width={48}
                   height={48}
                   draggable={false}
@@ -76,7 +76,7 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
                 <span
                   className="text-[17px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]"
                 >
-                  {profile.namn}
+                  {profile.name}
                 </span>
               </button>
             )}
