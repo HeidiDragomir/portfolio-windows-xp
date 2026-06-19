@@ -5,6 +5,7 @@
 
 let ctx: AudioContext | null = null;
 let muted = false;
+let volume = 0.7; // 0-1 range
 
 function getCtx(): AudioContext | null {
   if (typeof window === "undefined") return null;
@@ -25,6 +26,13 @@ export function setMuted(value: boolean) {
 }
 export function isMuted() {
   return muted;
+}
+
+export function setVolume(v: number) {
+  volume = Math.max(0, Math.min(1, v));
+}
+export function getVolume() {
+  return volume;
 }
 
 /** A short ascending "welcome" chime reminiscent of an OS startup sound. */

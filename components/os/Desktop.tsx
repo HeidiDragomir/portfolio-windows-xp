@@ -34,12 +34,10 @@ export default function Desktop() {
           position: "absolute",
           top: 8,
           left: 6,
-          display: "flex",
-          flexDirection: "column",
-          flexWrap: "wrap",
-          alignContent: "flex-start",
-          gap: 2,
-          maxHeight: "calc(100vh - 60px)",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, auto)",
+          gap: 12,
+          width: "auto",
         }}
       >
         {DESKTOP_APPS.map((app) => (
