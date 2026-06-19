@@ -30,15 +30,7 @@ export default function Desktop() {
       onClick={() => setSelected(null)}
     >
       <div
-        style={{
-          position: "absolute",
-          top: 8,
-          left: 6,
-          display: "grid",
-          gridTemplateColumns: "repeat(2, auto)",
-          gap: 12,
-          width: "auto",
-        }}
+        className="absolute top-2 left-1.5 grid gap-3 grid-cols-[repeat(2,auto)] w-auto"
       >
         {DESKTOP_APPS.map((app) => (
           <DesktopIcon

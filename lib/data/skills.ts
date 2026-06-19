@@ -35,6 +35,7 @@ export const skills: SkillGroup[] = [
       "Distributed systems",
       "Domain Driven Design (DDD)",
       "N-tier (layered) architecture",
+      "API Gateway (Ocelot)",
     ],
   },
   {

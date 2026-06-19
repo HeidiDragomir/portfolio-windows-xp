@@ -22,51 +22,20 @@ export default function BootScreen({ onDone }: Props) {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "#000",
-        color: "#fff",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 40,
-        zIndex: 200000,
-        transition: "opacity 600ms ease",
-        opacity: fading ? 0 : 1,
-      }}
+      className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-10 z-200000 transition-opacity duration-600 ease-[ease] ${fading ? "opacity-0" : "opacity-100"}`}
     >
       <XpLogo scale={1.9} />
 
       {/* Animated XP-style loading bar (three blocks sliding through a track). */}
       <div
-        style={{
-          width: 160,
-          height: 18,
-          border: "2px solid #6f7b9c",
-          borderRadius: 5,
-          overflow: "hidden",
-          position: "relative",
-          background: "#0a0d16",
-          boxShadow: "inset 0 0 6px rgba(0,0,0,0.8)",
-        }}
+        className="w-40 h-4.5 border-2 border-[#6f7b9c] rounded-[5px] overflow-hidden relative bg-[#0a0d16] [box-shadow:inset_0_0_6px_rgba(0,0,0,0.8)]"
       >
         <div className="bootbar" />
       </div>
 
-      <div
-        style={{
-          position: "absolute",
-          bottom: 24,
-          right: 40,
-          textAlign: "right",
-          fontSize: 16,
-          color: "#cfd6e6",
-        }}
-      >
-        <div style={{ fontWeight: "bold" }}>Welcome to my portfolio.</div>
-        <div style={{ opacity: 0.7 }}>Copyright © 2026 Heidi Dragomir</div>
+      <div className="absolute bottom-6 right-10 text-right text-[16px] text-[#cfd6e6]">
+        <div className="font-bold">Welcome to my portfolio.</div>
+        <div className="opacity-70">Copyright © 2026 Heidi Dragomir</div>
       </div>
 
       <style>{`

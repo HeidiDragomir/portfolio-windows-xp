@@ -33,43 +33,22 @@ export default function Notepad() {
   const [wrap, setWrap] = useState(true);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          padding: "2px 8px",
-          background: "#ece9d8",
-          borderBottom: "1px solid #d6d2bd",
-        }}
-      >
+    <div className="flex flex-col h-full">
+      <div className="flex gap-3 px-2 py-0.5 bg-[#ece9d8] border-b border-[#d6d2bd]">
         <span>File</span>
         <span>Edit</span>
-        <span onClick={() => setWrap((w) => !w)} style={{ cursor: "pointer" }}>
+        <span onClick={() => setWrap((w) => !w)} className="cursor-pointer">
           Format
         </span>
         <span>View</span>
         <span>Help</span>
       </div>
       <textarea
-        className="selectable xp-scroll"
+        className={`selectable xp-scroll flex-1 border-none outline-none resize-none p-1.5 font-mono text-[12px] leading-[1.4] text-black bg-white${wrap ? " whitespace-pre-wrap" : " whitespace-pre"}`}
         spellCheck={false}
         value={text}
         onChange={(e) => setText(e.target.value)}
         wrap={wrap ? "soft" : "off"}
-        style={{
-          flex: 1,
-          border: "none",
-          outline: "none",
-          resize: "none",
-          padding: 6,
-          fontFamily: "'Lucida Console', 'Courier New', monospace",
-          fontSize: 12,
-          lineHeight: 1.4,
-          whiteSpace: wrap ? "pre-wrap" : "pre",
-          color: "#000",
-          background: "#fff",
-        }}
       />
     </div>
   );

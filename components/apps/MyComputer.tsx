@@ -28,63 +28,47 @@ export default function MyComputer() {
             {current ? (
               <>
                 <strong>{current.kategori}</strong>
-                <div style={{ color: "#33558c" }}>
+                <div className="text-[#33558c]">
                   {current.fardigheter.length} skills
                 </div>
               </>
             ) : (
               <>
                 <strong>{profile.namn}</strong>
-                <div style={{ color: "#33558c" }}>{profile.titel}</div>
+                <div className="text-[#33558c]">{profile.titel}</div>
               </>
             )}
           </SidebarCard>
         </>
       }
     >
-      <div style={{ fontSize: 12, fontWeight: "bold", color: "#33558c", marginBottom: 8 }}>
+      <div className="text-[12px] font-bold text-[#33558c] mb-2">
         Hard drives (skill areas)
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-          gap: 10,
-          marginBottom: 18,
-        }}
-      >
+      <div className="grid gap-2.5 mb-4.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
         {skills.map((s) => (
           <button
             key={s.kategori}
             onClick={() => setSelected(s.kategori)}
-            style={{
-              display: "flex",
-              gap: 8,
-              alignItems: "center",
-              padding: 6,
-              border: selected === s.kategori ? "1px dotted #33558c" : "1px solid transparent",
-              background: selected === s.kategori ? "#e8effb" : "transparent",
-              cursor: "pointer",
-              textAlign: "left",
-            }}
+            className={`flex gap-2 items-center p-1.5 cursor-pointer text-left${selected === s.kategori ? " border border-dotted border-[#33558c] bg-[#e8effb]" : " border border-transparent bg-transparent"}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={icon(s.ikon)} alt="" width={34} height={34} draggable={false} />
             <span>
               <strong>{s.kategori}</strong>
               <br />
-              <span style={{ color: "#666" }}>Local Disk ({s.enhet})</span>
+              <span className="text-[#666]">Local Disk ({s.enhet})</span>
             </span>
           </button>
         ))}
       </div>
 
       {current && (
-        <div className="selectable" style={{ borderTop: "1px solid #d6d2bd", paddingTop: 10 }}>
-          <div style={{ fontWeight: "bold", marginBottom: 6 }}>
+        <div className="selectable border-t border-[#d6d2bd] pt-2.5">
+          <div className="font-bold mb-1.5">
             Contents of {current.enhet} – {current.kategori}
           </div>
-          <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8, columns: 2 }}>
+          <ul className="m-0 pl-4.5 leading-[1.8] columns-2">
             {current.fardigheter.map((f) => (
               <li key={f}>{f}</li>
             ))}
@@ -92,7 +76,7 @@ export default function MyComputer() {
         </div>
       )}
       {!current && (
-        <div style={{ color: "#666" }}>
+        <div className="text-[#666]">
           Click a drive to see the skills within that area.
         </div>
       )}

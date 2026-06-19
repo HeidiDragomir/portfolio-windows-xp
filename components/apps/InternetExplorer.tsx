@@ -32,7 +32,7 @@ export default function InternetExplorer() {
 
   function ToolBtn({ src, label }: { src: string; label: string }) {
     return (
-      <span style={{ display: "flex", alignItems: "center", gap: 4, color: "#444", padding: "0 4px" }}>
+      <span className="flex items-center gap-1 text-[#444] px-1">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={icon(src)} alt="" width={20} height={20} draggable={false} />
         {label}
@@ -41,15 +41,17 @@ export default function InternetExplorer() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <div className="flex flex-col h-full">
       {/* menu */}
-      <div style={{ display: "flex", gap: 12, padding: "2px 8px", background: "#ece9d8", borderBottom: "1px solid #d6d2bd" }}>
+      <div className="flex gap-3 px-2 py-0.5 bg-[#ece9d8] border-b border-[#d6d2bd]">
         {["File", "Edit", "View", "Favorites", "Tools", "Help"].map((m) => (
           <span key={m}>{m}</span>
         ))}
       </div>
       {/* toolbar */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 8px", background: "linear-gradient(180deg,#fbfbf6,#e9e6d6)", borderBottom: "1px solid #b9b59f" }}>
+      <div
+        className="flex items-center gap-2 px-2 py-1 border-b border-[#b9b59f] bg-[linear-gradient(180deg,#fbfbf6,#e9e6d6)]"
+      >
         <ToolBtn src="Back.png" label="Back" />
         <ToolBtn src="Forward.png" label="Forward" />
         <ToolBtn src="IE Stop.png" label="Stop" />
@@ -57,69 +59,63 @@ export default function InternetExplorer() {
         <ToolBtn src="IE Home.png" label="Home" />
       </div>
       {/* address bar */}
-      <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px 8px", background: "#ece9d8", borderBottom: "1px solid #d6d2bd" }}>
-        <span style={{ color: "#555" }}>Address</span>
-        <div className="xp-sunken" style={{ flex: 1, display: "flex", alignItems: "center", paddingLeft: 4 }}>
+      <div className="flex items-center gap-1.5 px-2 py-1 bg-[#ece9d8] border-b border-[#d6d2bd]">
+        <span className="text-[#555]">Address</span>
+        <div className="xp-sunken flex-1 flex items-center pl-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={icon("Internet Explorer 6.png")} alt="" width={16} height={16} draggable={false} />
           <input
-            className="selectable"
+            className="selectable flex-1 border-none outline-none px-1.5 py-0.75 font-(--xp-font) text-[12px]"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && onGo()}
-            style={{ flex: 1, border: "none", outline: "none", padding: "3px 6px", fontFamily: "var(--xp-font)", fontSize: 12 }}
           />
         </div>
-        <button className="xp-btn" style={{ minWidth: 50 }} onClick={onGo}>
+        <button className="xp-btn min-w-12.5" onClick={onGo}>
           Go
         </button>
       </div>
 
       {/* page */}
-      <div className="selectable xp-scroll" style={{ flex: 1, overflow: "auto", background: "#fff" }}>
+      <div className="selectable xp-scroll flex-1 overflow-auto bg-white">
         <div
-          style={{
-            background: "linear-gradient(180deg,#1f6ae0 0%,#0a52c8 100%)",
-            color: "#fff",
-            padding: "26px 24px",
-          }}
+          className="text-white px-6 py-6.5 bg-[linear-gradient(180deg,#1f6ae0_0%,#0a52c8_100%)]"
         >
-          <div style={{ fontSize: 26, fontWeight: "bold", textShadow: "1px 1px 2px rgba(0,0,0,.4)" }}>
+          <div className="text-[26px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,.4)]">
             heididragomir.dev
           </div>
-          <div style={{ opacity: 0.9 }}>{profile.titel}</div>
+          <div className="opacity-90">{profile.titel}</div>
         </div>
 
-        <div style={{ padding: 24, lineHeight: 1.6 }}>
-          <p style={{ marginTop: 0 }}>
+        <div className="p-6 leading-relaxed">
+          <p className="mt-0">
             Welcome! This is {profile.namn}&apos;s home page. Use the links below to visit my
             profiles (they open in a new tab).
           </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, margin: "16px 0" }}>
+          <div className="flex flex-wrap gap-3 my-4">
             {bookmarks.map((b) => (
               <button
                 key={b.label}
                 onClick={() => go(b.url)}
-                className="xp-btn"
-                style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: 200, padding: 10, textAlign: "left" }}
+                className="xp-btn flex flex-col items-start min-w-50 p-2.5 text-left"
               >
-                <strong style={{ color: "#0c327d" }}>🔗 {b.label}</strong>
-                <span style={{ color: "#555" }}>{b.desc}</span>
+                <strong className="text-[#0c327d]">🔗 {b.label}</strong>
+                <span className="text-[#555]">{b.desc}</span>
               </button>
             ))}
           </div>
 
-          <h3 style={{ color: "#1f3f8c", borderBottom: "1px solid #ccd", paddingBottom: 4 }}>
+          <h3 className="text-[#1f3f8c] border-b border-[#ccd] pb-1">
             Latest projects
           </h3>
-          <ul style={{ lineHeight: 1.9 }}>
+          <ul className="leading-[1.9]">
             {projects.map((p) => (
               <li key={p.id}>
                 <a href={p.github} target="_blank" rel="noopener noreferrer">
                   {p.namn}
                 </a>{" "}
-                <span style={{ color: "#777" }}>– {p.kort}</span>
+                <span className="text-[#777]">– {p.kort}</span>
               </li>
             ))}
           </ul>

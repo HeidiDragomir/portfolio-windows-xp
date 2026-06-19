@@ -72,26 +72,13 @@ export default function XPDesktop() {
   if (phase === "off") {
     return (
       <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          background: "#000",
-          color: "#e8a020",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 18,
-          textAlign: "center",
-          fontSize: 15,
-        }}
+        className="fixed inset-0 bg-black text-[#e8a020] flex flex-col items-center justify-center gap-4.5 text-center text-[15px]"
       >
-        <div style={{ fontWeight: "bold", textShadow: "0 0 8px rgba(232,160,32,0.6)" }}>
+        <div className="font-bold [text-shadow:0_0_8px_rgba(232,160,32,0.6)]">
           It&apos;s now safe to turn off your computer.
         </div>
         <button
-          className="xp-btn"
-          style={{ minWidth: 140 }}
+          className="xp-btn min-w-35"
           onClick={() => {
             sessionStorage.removeItem("xp-booted");
             setPhase("booting");

@@ -39,23 +39,13 @@ export default function StartMenu({ onClose, onLogOff, onTurnOff }: Props) {
       <div className="xp-startmenu-header">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-                  src={AVATAR}
-                  alt={profile.namn}
-                  width={48}
-                  height={48}
-                  draggable={false}
-                  style={{
-                    width: 40,
-                    height: 40,
-                    objectFit: "cover",
-                    borderRadius: 5,
-                    border: "2px solid #fff",
-                    background: "#9db8e8",
-                    boxShadow: hover
-                      ? "0 0 8px rgba(255,255,255,0.7)"
-                      : "0 1px 3px rgba(0,0,0,0.3)",
-                  }}
-                />
+          src={AVATAR}
+          alt={profile.namn}
+          width={48}
+          height={48}
+          draggable={false}
+          className={`w-10 h-10 object-cover rounded-[5px] border-2 border-white bg-[#9db8e8] ${hover ? "[box-shadow:0_0_8px_rgba(255,255,255,0.7)]" : "[box-shadow:0_1px_3px_rgba(0,0,0,0.3)]"}`}
+        />
 
         {profile.namn}
       </div>
@@ -69,13 +59,12 @@ export default function StartMenu({ onClose, onLogOff, onTurnOff }: Props) {
               <span className="name">{app.label ?? app.title}</span>
             </div>
           ))}
-          <div style={{ borderTop: "1px solid #ccc", margin: "4px 0" }} />
+          <div className="border-t border-[#ccc] my-1" />
           <a
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="xp-startmenu-item"
-            style={{ textDecoration: "none" }}
+            className="xp-startmenu-item no-underline"
             onClick={onClose}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

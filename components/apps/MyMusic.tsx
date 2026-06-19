@@ -99,104 +99,79 @@ export default function MyMusic() {
 
   return (
     <div
-      style={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        background: "linear-gradient(180deg,#1b3a5e 0%,#0a1828 100%)",
-        color: "#cfe8ff",
-      }}
+      className="h-full flex flex-col text-[#cfe8ff] bg-[linear-gradient(180deg,#1b3a5e_0%,#0a1828_100%)]"
     >
       {/* Visualizer */}
-      <div style={{ padding: 10 }}>
+      <div className="p-2.5">
         <canvas
           ref={canvasRef}
           width={420}
           height={140}
-          style={{ width: "100%", height: 140, borderRadius: 4, border: "1px solid #0c2d4a", display: "block" }}
+          className="w-full h-35 rounded block border border-[#0c2d4a]"
         />
       </div>
 
       {/* Now playing */}
-      <div style={{ padding: "0 14px" }}>
-        <div style={{ fontSize: 15, fontWeight: "bold", color: "#fff" }}>{track.namn}</div>
-        <div style={{ color: "#7fb0dd" }}>{track.artist}</div>
+      <div className="px-3.5">
+        <div className="text-[15px] font-bold text-white">{track.namn}</div>
+        <div className="text-[#7fb0dd]">{track.artist}</div>
       </div>
 
       {/* Seek */}
-      <div style={{ padding: "10px 14px", display: "flex", alignItems: "center", gap: 8 }}>
-        <span style={{ fontSize: 11, width: 32 }}>{fmt(cur)}</span>
+      <div className="px-3.5 py-2.5 flex items-center gap-2">
+        <span className="text-[11px] w-8">{fmt(cur)}</span>
         <input
           type="range"
           min={0}
           max={Math.max(1, Math.floor(len))}
           value={Math.floor(cur)}
           onChange={(e) => onSeek(Number(e.target.value))}
-          style={{ flex: 1 }}
+          className="flex-1"
         />
-        <span style={{ fontSize: 11, width: 32, textAlign: "right" }}>{fmt(len)}</span>
+        <span className="text-[11px] w-8 text-right">{fmt(len)}</span>
       </div>
 
       {/* Transport */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "4px 0 10px" }}>
-        <button className="xp-btn" style={{ minWidth: 40 }} onClick={() => loadTrack(index - 1)} title="Previous">
-          ⏮
-        </button>
+      <div className="flex items-center justify-center gap-2 pt-1 pb-2.5">
+        <button className="xp-btn min-w-10" onClick={() => loadTrack(index - 1)} title="Previous">⏮</button>
         {playing ? (
-          <button className="xp-btn" style={{ minWidth: 54 }} onClick={pause} title="Pause">
-            ⏸
-          </button>
+          <button className="xp-btn min-w-13.5" onClick={pause} title="Pause">⏸</button>
         ) : (
-          <button className="xp-btn" style={{ minWidth: 54 }} onClick={play} title="Play">
-            ▶
-          </button>
+          <button className="xp-btn min-w-13.5" onClick={play} title="Play">▶</button>
         )}
-        <button className="xp-btn" style={{ minWidth: 40 }} onClick={stop} title="Stop">
-          ⏹
-        </button>
-        <button className="xp-btn" style={{ minWidth: 40 }} onClick={() => loadTrack(index + 1)} title="Next">
-          ⏭
-        </button>
-        <span style={{ marginLeft: 10, fontSize: 12 }}>🔊</span>
+        <button className="xp-btn min-w-10" onClick={stop} title="Stop">⏹</button>
+        <button className="xp-btn min-w-10" onClick={() => loadTrack(index + 1)} title="Next">⏭</button>
+        <span className="ml-2.5 text-[12px]">🔊</span>
         <input
           type="range"
           min={0}
           max={100}
           value={Math.round(volume * 100)}
           onChange={(e) => onVolume(Number(e.target.value) / 100)}
-          style={{ width: 80 }}
+          className="w-20"
         />
       </div>
 
       {/* Playlist */}
-      <div className="xp-scroll" style={{ flex: 1, overflow: "auto", margin: "0 10px 10px", background: "rgba(0,0,0,0.25)", borderRadius: 4 }}>
-        <div style={{ padding: "5px 10px", fontWeight: "bold", color: "#9fd0ff", borderBottom: "1px solid #1c456e" }}>
+      <div className="xp-scroll flex-1 overflow-auto mx-2.5 mb-2.5 bg-black/25 rounded">
+        <div className="px-2.5 py-1.25 font-bold text-[#9fd0ff] border-b border-[#1c456e]">
           Playlist
         </div>
         {MUSIC_TRACKS.map((t, i) => (
           <div
             key={t.id}
             onClick={() => loadTrack(i)}
-            onDoubleClick={() => {
-              loadTrack(i);
-              play();
-            }}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "5px 10px",
-              cursor: "pointer",
-              background: i === index ? "rgba(0,160,255,0.3)" : "transparent",
-            }}
+            onDoubleClick={() => { loadTrack(i); play(); }}
+            className={`flex justify-between px-2.5 py-1.25 cursor-pointer ${i === index ? "bg-[rgba(0,160,255,0.3)]" : "bg-transparent"}`}
           >
             <span>
               {i === index && playing ? "▶ " : ""}
-              {t.namn} <span style={{ color: "#7fb0dd" }}>– {t.artist}</span>
+              {t.namn} <span className="text-[#7fb0dd]">– {t.artist}</span>
             </span>
           </div>
         ))}
       </div>
-      <div style={{ padding: "4px 12px", fontSize: 11, color: "#6f9cc4" }}>
+      <div className="px-3 py-1 text-[11px] text-[#6f9cc4]">
         90s hits playlist
       </div>
     </div>

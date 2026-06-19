@@ -9,19 +9,13 @@ interface SidebarCardProps {
 
 export function SidebarCard({ title, children }: SidebarCardProps) {
   return (
-    <div className="xp-sidebar-card" style={{ marginBottom: 10, overflow: "hidden" }}>
+    <div className="xp-sidebar-card mb-2.5 overflow-hidden">
       <div
-        style={{
-          background: "linear-gradient(180deg,#f0f4ff 0%,#c2d4f5 100%)",
-          padding: "3px 8px",
-          fontWeight: "bold",
-          color: "#0c327d",
-          borderBottom: "1px solid #b0c4ec",
-        }}
+        className="px-2 py-0.75 font-bold text-[#0c327d] border-b border-[#b0c4ec] bg-[linear-gradient(180deg,#f0f4ff_0%,#c2d4f5_100%)]"
       >
         {title}
       </div>
-      <div style={{ padding: "6px 8px", lineHeight: 1.6 }}>{children}</div>
+      <div className="px-2 py-1.5 leading-relaxed">{children}</div>
     </div>
   );
 }
@@ -44,75 +38,35 @@ export default function ExplorerShell({
   statusLeft,
 }: ExplorerShellProps) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <div className="flex flex-col h-full">
       {/* Menu bar */}
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          padding: "2px 8px",
-          background: "#ece9d8",
-          borderBottom: "1px solid #d6d2bd",
-        }}
-      >
+      <div className="flex gap-3 px-2 py-0.5 bg-[#ece9d8] border-b border-[#d6d2bd]">
         {menu.map((m) => (
-          <span key={m} style={{ cursor: "default" }}>
+          <span key={m} className="cursor-default">
             {m}
           </span>
         ))}
       </div>
       {/* Address bar */}
       {address !== undefined && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "3px 8px",
-            background: "#ece9d8",
-            borderBottom: "1px solid #d6d2bd",
-          }}
-        >
-          <span style={{ color: "#555" }}>Address</span>
-          <div
-            className="xp-sunken"
-            style={{
-              flex: 1,
-              padding: "2px 6px",
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-            }}
-          >
+        <div className="flex items-center gap-1.5 px-2 py-0.75 bg-[#ece9d8] border-b border-[#d6d2bd]">
+          <span className="text-[#555]">Address</span>
+          <div className="xp-sunken flex-1 px-1.5 py-0.5 flex items-center gap-1.5">
             {address}
           </div>
         </div>
       )}
       {/* Body */}
-      <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
-        <div
-          className="xp-sidebar xp-scroll"
-          style={{ width: 180, flex: "0 0 180px", padding: 10, overflow: "auto" }}
-        >
+      <div className="flex flex-1 min-h-0">
+        <div className="xp-sidebar xp-scroll w-45 shrink-0 p-2.5 overflow-auto">
           {sidebar}
         </div>
-        <div className="xp-scroll" style={{ flex: 1, overflow: "auto", padding: 14 }}>
+        <div className="xp-scroll flex-1 overflow-auto p-3.5">
           {children}
         </div>
       </div>
       {/* Status bar */}
-      <div
-        style={{
-          height: 20,
-          display: "flex",
-          alignItems: "center",
-          padding: "0 8px",
-          fontSize: 12,
-          background: "#ece9d8",
-          borderTop: "1px solid #d6d2bd",
-          color: "#333",
-        }}
-      >
+      <div className="h-5 flex items-center px-2 text-[12px] bg-[#ece9d8] border-t border-[#d6d2bd] text-[#333]">
         {statusLeft}
       </div>
     </div>

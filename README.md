@@ -1,8 +1,7 @@
-# Heidi Dragomir – Portfolio (Windows XP)
+# Heidi Dragomir – Portfolio
 
 An interactive personal portfolio that boots, looks and behaves like Windows XP.
-Built with **Next.js 16 (App Router)**, **React 19** and **Tailwind v4**. Inspired by
-[pauljaguin.com](https://pauljaguin.com/).
+Built with **Next.js 16 (App Router)**, **React 19** and **Tailwind v4**.
 
 ## Features
 

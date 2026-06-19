@@ -12,17 +12,10 @@ export default function MyCV() {
   const fileName = lang === "sv" ? "Heidi-Dragomir-CV-SV.pdf" : "Heidi-Dragomir-CV-EN.pdf";
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <div className="flex flex-col h-full">
       {/* Toolbar */}
       <div
-        style={{
-          display: "flex",
-          gap: 8,
-          alignItems: "center",
-          padding: "6px 10px",
-          background: "linear-gradient(180deg,#fbfbf6 0%,#e9e6d6 100%)",
-          borderBottom: "1px solid #b9b59f",
-        }}
+        className="flex gap-2 items-center px-2.5 py-1.5 border-b border-[#b9b59f] bg-[linear-gradient(180deg,#fbfbf6_0%,#e9e6d6_100%)]"
       >
         <a href={cvPdf} target="_blank" rel="noopener noreferrer">
           <button className="xp-btn">📄 Open PDF</button>
@@ -32,49 +25,38 @@ export default function MyCV() {
         </a>
 
         {/* Language selector */}
-        <div style={{ display: "flex", gap: 6, marginLeft: 12, borderLeft: "1px solid #999", paddingLeft: 12 }}>
+        <div className="flex gap-1.5 ml-3 border-l border-[#999] pl-3">
           <button
             onClick={() => setLang("sv")}
-            className="xp-btn"
-            style={{
-              opacity: lang === "sv" ? 1 : 0.6,
-              fontWeight: lang === "sv" ? "bold" : "normal",
-            }}
+            className={`xp-btn ${lang === "sv" ? "opacity-100 font-bold" : "opacity-60 font-normal"}`}
           >
             SV
           </button>
           <button
             onClick={() => setLang("en")}
-            className="xp-btn"
-            style={{
-              opacity: lang === "en" ? 1 : 0.6,
-              fontWeight: lang === "en" ? "bold" : "normal",
-            }}
+            className={`xp-btn ${lang === "en" ? "opacity-100 font-bold" : "opacity-60 font-normal"}`}
           >
             EN
           </button>
         </div>
 
-        <span style={{ color: "#666", marginLeft: 8 }}>
+        <span className="text-[#666] ml-2">
           CV – {profile.namn} ({langLabel})
         </span>
       </div>
 
       {/* Embedded PDF */}
-      <div style={{ flex: 1, background: "#525659", minHeight: 0 }}>
+      <div className="flex-1 bg-[#525659] min-h-0">
         <object data={cvPdf} type="application/pdf" width="100%" height="100%">
-          <div
-            className="selectable"
-            style={{ padding: 24, color: "#fff", lineHeight: 1.6 }}
-          >
+          <div className="selectable p-6 text-white leading-relaxed">
             <p>
               The PDF preview could not be displayed in this browser.{" "}
-              <a href={cvPdf} target="_blank" rel="noopener noreferrer" style={{ color: "#9fd0ff" }}>
+              <a href={cvPdf} target="_blank" rel="noopener noreferrer" className="text-[#9fd0ff]">
                 Open the CV in a new tab
               </a>{" "}
               or use the Download button above.
             </p>
-            <p style={{ color: "#cdd" }}>
+            <p className="text-[#cdd]">
               (Make sure <code>public/assets/CV - SV.pdf</code> and <code>public/assets/CV - EN.pdf</code> exist.)
             </p>
           </div>

@@ -24,7 +24,7 @@ export default function MyDocuments() {
                 setTab("erfarenhet");
                 setOpen(0);
               }}
-              style={{ cursor: "pointer", fontWeight: tab === "erfarenhet" ? "bold" : "normal" }}
+              className={`cursor-pointer${tab === "erfarenhet" ? " font-bold" : ""}`}
             >
               📁 Work Experience
             </div>
@@ -33,7 +33,7 @@ export default function MyDocuments() {
                 setTab("utbildning");
                 setOpen(null);
               }}
-              style={{ cursor: "pointer", fontWeight: tab === "utbildning" ? "bold" : "normal" }}
+              className={`cursor-pointer${tab === "utbildning" ? " font-bold" : ""}`}
             >
               📁 Education
             </div>
@@ -49,53 +49,37 @@ export default function MyDocuments() {
       }
     >
       {tab === "erfarenhet" && (
-        <div className="selectable" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <div className="selectable flex flex-col gap-2">
           {experience.map((e, i) => (
-            <div key={i} style={{ border: "1px solid #d6d2bd", background: "#fbfaf5" }}>
+            <div key={i} className="border border-[#d6d2bd] bg-[#fbfaf5]">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  gap: 10,
-                  alignItems: "center",
-                  padding: 8,
-                  background: open === i ? "#e8effb" : "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  textAlign: "left",
-                }}
+                className={`w-full flex gap-2.5 items-center p-2 border-none cursor-pointer text-left${open === i ? " bg-[#e8effb]" : " bg-transparent"}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={icon("Generic Text Document.png")} alt="" width={28} height={28} draggable={false} />
-                <span style={{ flex: 1 }}>
+                <span className="flex-1">
                   <strong>{e.roll}</strong>
                   <br />
-                  <span style={{ color: "#555" }}>
+                  <span className="text-[#555]">
                     {e.foretag} · {e.ort}
                   </span>
                 </span>
-                <span style={{ color: "#33558c", whiteSpace: "nowrap" }}>{e.period}</span>
+                <span className="text-[#33558c] whitespace-nowrap">{e.period}</span>
               </button>
               {open === i && (
-                <div style={{ padding: "4px 12px 12px 48px" }}>
-                  <p style={{ margin: "4px 0 8px", color: "#333" }}>{e.beskrivning}</p>
-                  <ul style={{ margin: "0 0 10px", paddingLeft: 18, lineHeight: 1.6 }}>
+                <div className="pt-1 pr-3 pb-3 pl-12">
+                  <p className="mt-1 mb-2 text-[#333]">{e.beskrivning}</p>
+                  <ul className="mt-0 mb-2.5 pl-4.5 leading-[1.6]">
                     {e.punkter.map((p, j) => (
                       <li key={j}>{p}</li>
                     ))}
                   </ul>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                  <div className="flex flex-wrap gap-1">
                     {e.teknikstack.map((t) => (
                       <span
                         key={t}
-                        style={{
-                          fontSize: 11,
-                          background: "#dbe7fb",
-                          border: "1px solid #b6cdf0",
-                          borderRadius: 3,
-                          padding: "1px 6px",
-                        }}
+                        className="text-[11px] bg-[#dbe7fb] border border-[#b6cdf0] rounded-[3px] px-1.5 py-px"
                       >
                         {t}
                       </span>
@@ -109,22 +93,22 @@ export default function MyDocuments() {
       )}
 
       {tab === "utbildning" && (
-        <div className="selectable" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div className="selectable flex flex-col gap-2.5">
           {education.map((e, i) => (
             <div
               key={i}
-              style={{ display: "flex", gap: 10, alignItems: "center", padding: 8, border: "1px solid #d6d2bd", background: "#fbfaf5" }}
+              className="flex gap-2.5 items-center p-2 border border-[#d6d2bd] bg-[#fbfaf5]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={icon("Help and Support.png")} alt="" width={30} height={30} draggable={false} />
-              <span style={{ flex: 1 }}>
+              <span className="flex-1">
                 <strong>{e.utbildning}</strong>
                 <br />
-                <span style={{ color: "#555" }}>
+                <span className="text-[#555]">
                   {e.skola} · {e.ort}
                 </span>
               </span>
-              <span style={{ color: "#33558c", whiteSpace: "nowrap" }}>{e.period}</span>
+              <span className="text-[#33558c] whitespace-nowrap">{e.period}</span>
             </div>
           ))}
         </div>

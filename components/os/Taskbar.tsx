@@ -99,7 +99,7 @@ export default function Taskbar({ onRequestShutdown, onLogOff }: Props) {
             width={20}
             height={20}
             draggable={false}
-            style={{ verticalAlign: "middle" }}
+            className="align-middle"
           />
           start
         </button>
@@ -123,71 +123,30 @@ export default function Taskbar({ onRequestShutdown, onLogOff }: Props) {
         </div>
 
         <div className="xp-tray">
-          <div
-            ref={volumeRef}
-            style={{ position: "relative", display: "inline-block" }}
-          >
+          <div ref={volumeRef} className="relative inline-block">
             <button
               onClick={() => {
                 playClick();
                 setVolumeOpen((o) => !o);
               }}
               title={muted ? "Sound off" : `Sound on (${Math.round(volume * 100)}%)`}
-              style={{
-                cursor: "pointer",
-                fontSize: 13,
-                border: "none",
-                background: "transparent",
-                padding: "0 4px",
-                display: "flex",
-                alignItems: "center",
-              }}
+              className="cursor-pointer text-sm border-0 bg-transparent px-1 flex items-center"
             >
               {muted ? "🔇" : "🔊"}
             </button>
 
             {volumeOpen && (
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "100%",
-                  right: 0,
-                  marginBottom: 4,
-                  background: "#ece9d8",
-                  border: "1px solid #999",
-                  borderRadius: 2,
-                  padding: 6,
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                  zIndex: 9999,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 6,
-                  minWidth: 40,
-                }}
-              >
+              <div className="absolute bottom-full right-0 mb-1 bg-[#ece9d8] border border-[#999] rounded p-1.5 shadow-md z-[9999] flex flex-col items-center gap-1.5 min-w-10">
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value={Math.round(volume * 100)}
                   onChange={(e) => handleVolumeChange(parseInt(e.target.value) / 100)}
-                  style={{
-                    width: 20,
-                    height: 100,
-                    appearance: "slider-vertical",
-                    writingMode: "bt-lr",
-                    cursor: "pointer",
-                  }}
+                  className="w-5 h-24 cursor-pointer [appearance:slider-vertical] [writing-mode:bt-lr]"
                   title={`Volume: ${Math.round(volume * 100)}%`}
                 />
-                <div
-                  style={{
-                    fontSize: 10,
-                    color: "#555",
-                    fontWeight: "bold",
-                  }}
-                >
+                <div className="text-[10px] text-[#555] font-bold">
                   {Math.round(volume * 100)}%
                 </div>
               </div>

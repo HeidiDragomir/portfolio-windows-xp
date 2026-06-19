@@ -68,28 +68,28 @@ export default function Paint() {
   }
 
   return (
-    <div style={{ display: "flex", height: "100%", background: "#ece9d8" }}>
+    <div className="flex h-full bg-[#ece9d8]">
       {/* Tool palette */}
-      <div style={{ width: 56, padding: 6, borderRight: "1px solid #b9b59f" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 3, marginBottom: 8 }}>
+      <div className="w-14 p-1.5 border-r border-[#b9b59f]">
+        <div className="grid grid-cols-2 gap-1 mb-2">
           {[2, 4, 8, 14].map((s) => (
             <button
               key={s}
               onClick={() => setSize(s)}
-              className="xp-btn"
-              style={{ minWidth: 0, padding: 2, height: 22, fontWeight: size === s ? "bold" : "normal" }}
+              style={{ minWidth: "auto", padding: "2px 2px", height: "22px" }}
+              className={`xp-btn ${size === s ? "font-bold" : ""}`}
             >
               {s}
             </button>
           ))}
         </div>
-        <button className="xp-btn" style={{ minWidth: 0, width: "100%", padding: 2 }} onClick={clear}>
+        <button className="xp-btn" style={{ minWidth: "auto", width: "100%", padding: "2px 4px" }} onClick={clear}>
           Rensa
         </button>
       </div>
 
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: 8, minWidth: 0 }}>
-        <div className="xp-sunken" style={{ flex: 1, background: "#fff", overflow: "hidden" }}>
+      <div className="flex-1 flex flex-col p-2 min-w-0">
+        <div className="xp-sunken flex-1 bg-white overflow-hidden">
           <canvas
             ref={canvasRef}
             width={560}
@@ -97,19 +97,23 @@ export default function Paint() {
             onPointerDown={down}
             onPointerMove={move}
             onPointerUp={up}
-            style={{ width: "100%", height: "100%", display: "block", cursor: "crosshair", touchAction: "none" }}
+            className="w-full h-full block cursor-crosshair touch-none"
           />
         </div>
         {/* Color palette */}
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-          <div style={{ width: 26, height: 26, background: color, border: "2px solid", borderColor: "#808080 #fff #fff #808080" }} />
-          <div style={{ display: "flex", flexWrap: "wrap", width: 9 * 16, gap: 0 }}>
+        <div className="flex items-center gap-2 mt-2">
+          <div
+            className="w-6.5 h-6.5 border-2 border-solid border-l-[#808080] border-t-[#808080] border-r-white border-b-white"
+            style={{ background: color }}
+          />
+          <div className="flex flex-wrap w-36">
             {COLORS.map((c) => (
               <button
                 key={c}
                 onClick={() => setColor(c)}
                 title={c}
-                style={{ width: 16, height: 16, background: c, border: "1px solid #808080", padding: 0, cursor: "pointer" }}
+                className="w-4 h-4 border border-[#808080] p-0 cursor-pointer"
+                style={{ background: c }}
               />
             ))}
           </div>

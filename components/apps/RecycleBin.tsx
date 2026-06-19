@@ -21,8 +21,8 @@ export default function RecycleBin() {
       sidebar={
         <>
           <SidebarCard title="Recycle Bin Tasks">
-            <div style={{ color: "#9aa" }}>Empty the Recycle Bin</div>
-            <div style={{ color: "#9aa" }}>Restore all items</div>
+            <div className="text-[#9aa]">Empty the Recycle Bin</div>
+            <div className="text-[#9aa]">Restore all items</div>
           </SidebarCard>
           <SidebarCard title="Details">
             Things I&apos;ve left behind as a developer. None of this belongs in production! 😉
@@ -30,25 +30,21 @@ export default function RecycleBin() {
         </>
       }
     >
-      <div style={{ fontWeight: "bold", color: "#33558c", marginBottom: 10 }}>
+      <div className="font-bold text-[#33558c] mb-2.5">
         Deleted (bad) habits
       </div>
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-          gap: 10,
-        }}
+        className="grid gap-2.5 grid-cols-[repeat(auto-fill,minmax(140px,1fr))]"
       >
         {discarded.map((d) => (
           <div
             key={d.namn}
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: 8, textAlign: "center" }}
+            className="flex flex-col items-center gap-1.5 p-2 text-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={icon(d.ikon)} alt="" width={40} height={40} draggable={false} style={{ opacity: 0.85 }} />
+            <img src={icon(d.ikon)} alt="" width={40} height={40} draggable={false} className="opacity-85" />
             <span>{d.namn}</span>
-            <span style={{ color: "#888", fontSize: 11 }}>{d.typ}</span>
+            <span className="text-[#888] text-[11px]">{d.typ}</span>
           </div>
         ))}
       </div>

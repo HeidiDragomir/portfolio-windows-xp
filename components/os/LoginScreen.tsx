@@ -24,60 +24,22 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
   }
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 199999,
-        display: "flex",
-        flexDirection: "column",
-        color: "#fff",
-        fontFamily: "Tahoma, var(--xp-font)",
-        background: "#2f5cba",
-      }}
-    >
+    <div className="fixed inset-0 z-[199999] flex flex-col text-white font-[Tahoma,var(--xp-font)] bg-[#2f5cba]">
       {/* Top band — deep blue with a glowing light-blue hairline */}
       <div
-        style={{
-          height: "21%",
-          background: "linear-gradient(180deg,#1f4aa6 0%,#2f63c8 100%)",
-          borderBottom: "1px solid #bcd6ff",
-          boxShadow: "0 1px 9px 1px rgba(150,190,255,0.75)",
-        }}
+        className="h-[21%] border-b border-[#bcd6ff] bg-[linear-gradient(180deg,#1f4aa6_0%,#2f63c8_100%)] [box-shadow:0_1px_9px_1px_rgba(150,190,255,0.75)]"
       />
 
       {/* Middle field with a soft light glow */}
       <div
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background:
-            "radial-gradient(130% 120% at 24% 28%, rgba(255,255,255,0.45) 0%, rgba(110,150,225,0) 46%), linear-gradient(180deg,#5786dd 0%,#4d7ad4 100%)",
-        }}
+        className="flex-1 flex items-center justify-center bg-[radial-gradient(130%_120%_at_24%_28%,rgba(255,255,255,0.45)_0%,rgba(110,150,225,0)_46%),linear-gradient(180deg,#5786dd_0%,#4d7ad4_100%)]"
       >
-        <div style={{ display: "flex", width: "88%", maxWidth: 860, alignItems: "center" }}>
+        <div className="flex w-[88%] max-w-[860px] items-center">
           {/* Left: branding */}
-          <div
-            style={{
-              flex: 1,
-              minWidth: 0,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              paddingRight: 34,
-              textAlign: "right",
-            }}
-          >
+          <div className="flex-1 min-w-0 flex flex-col items-end pr-[34px] text-right">
             <XpLogo scale={1.6} />
             <div
-              style={{
-                marginTop: 26,
-                fontSize: 15,
-                textShadow: "1px 1px 2px rgba(0,0,0,0.35)",
-                maxWidth: 300,
-              }}
+              className="mt-[26px] text-[15px] max-w-[300px] [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]"
             >
               To begin the journey click on my username.
             </div>
@@ -85,39 +47,22 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
 
           {/* Vertical divider */}
           <div
-            style={{
-              width: 2,
-              height: 230,
-              background:
-                "linear-gradient(180deg,transparent 0%,rgba(207,224,255,0.9) 50%,transparent 100%)",
-              boxShadow: "0 0 8px rgba(180,208,255,0.7)",
-            }}
+            className="w-0.5 h-[230px] bg-[linear-gradient(180deg,transparent_0%,rgba(207,224,255,0.9)_50%,transparent_100%)] [box-shadow:0_0_8px_rgba(180,208,255,0.7)]"
           />
 
           {/* Right: user list (one user) */}
-          <div style={{ flex: 1, minWidth: 0, paddingLeft: 34 }}>
+          <div className="flex-1 min-w-0 pl-[34px]">
             {loggingIn ? (
-              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div className="flex items-center gap-3.5">
                 <Spinner />
-                <span style={{ fontSize: 18 }}>Welcome</span>
+                <span className="text-[18px]">Welcome</span>
               </div>
             ) : (
               <button
                 onClick={logOn}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  background: hover ? "rgba(255,255,255,0.16)" : "transparent",
-                  border: "none",
-                  borderRadius: 6,
-                  cursor: "pointer",
-                  color: "#fff",
-                  padding: "6px 10px 6px 6px",
-                  textAlign: "left",
-                }}
+                className={`flex items-center gap-3 border-none rounded-md cursor-pointer text-white pt-1.5 pr-2.5 pb-1.5 pl-1.5 text-left ${hover ? "bg-[rgba(255,255,255,0.16)]" : "bg-transparent"}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -126,24 +71,10 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
                   width={48}
                   height={48}
                   draggable={false}
-                  style={{
-                    width: 48,
-                    height: 48,
-                    objectFit: "cover",
-                    borderRadius: 5,
-                    border: "2px solid #fff",
-                    background: "#9db8e8",
-                    boxShadow: hover
-                      ? "0 0 8px rgba(255,255,255,0.7)"
-                      : "0 1px 3px rgba(0,0,0,0.3)",
-                  }}
+                  className={`w-12 h-12 object-cover rounded-[5px] border-2 border-white bg-[#9db8e8] ${hover ? "[box-shadow:0_0_8px_rgba(255,255,255,0.7)]" : "[box-shadow:0_1px_3px_rgba(0,0,0,0.3)]"}`}
                 />
                 <span
-                  style={{
-                    fontSize: 17,
-                    fontWeight: "bold",
-                    textShadow: "1px 1px 2px rgba(0,0,0,0.35)",
-                  }}
+                  className="text-[17px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]"
                 >
                   {profile.namn}
                 </span>
@@ -155,60 +86,25 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
 
       {/* Bottom band — deep blue with a glowing amber hairline */}
       <div
-        style={{
-          height: "19%",
-          background: "linear-gradient(180deg,#2f63c8 0%,#1f4aa6 100%)",
-          borderTop: "1px solid #f3b24a",
-          boxShadow: "0 -1px 9px 1px rgba(243,170,70,0.6)",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "0 26px",
-        }}
+        className="h-[19%] border-t border-[#f3b24a] flex justify-between items-center px-[26px] bg-[linear-gradient(180deg,#2f63c8_0%,#1f4aa6_100%)] [box-shadow:0_-1px_9px_1px_rgba(243,170,70,0.6)]"
       >
         <button
           onClick={onRequestShutdown}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 9,
-            background: "transparent",
-            border: "none",
-            color: "#fff",
-            cursor: "pointer",
-          }}
+          className="flex items-center gap-[9px] bg-transparent border-none text-white cursor-pointer"
           title="Turn off computer"
         >
           <span
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: 5,
-              background: "radial-gradient(circle at 35% 30%,#f06a5a,#c0291a)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "inset 0 0 4px rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.4)",
-              fontSize: 15,
-              fontWeight: "bold",
-            }}
+            className="w-7 h-7 rounded-[5px] flex items-center justify-center text-[15px] font-bold bg-[radial-gradient(circle_at_35%_30%,#f06a5a,#c0291a)] [box-shadow:inset_0_0_4px_rgba(255,255,255,0.5),0_1px_2px_rgba(0,0,0,0.4)]"
           >
             ⏻
           </span>
-          <span style={{ fontSize: 13, textShadow: "1px 1px 1px rgba(0,0,0,0.35)" }}>
+          <span className="text-[13px] [text-shadow:1px_1px_1px_rgba(0,0,0,0.35)]">
             Turn off computer
           </span>
         </button>
 
         <div
-          style={{
-            fontSize: 13,
-            maxWidth: 450,
-            textAlign: "right",
-            lineHeight: 1.5,
-            opacity: 0.95,
-            textShadow: "1px 1px 1px rgba(0,0,0,0.3)",
-          }}
+          className="text-[13px] max-w-[450px] text-right leading-normal opacity-[0.95] [text-shadow:1px_1px_1px_rgba(0,0,0,0.3)]"
         >
           After logging in, you can browse through the folders on my computer.
           <br />
@@ -222,16 +118,7 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
 function Spinner() {
   return (
     <div
-      style={{
-        width: 20,
-        height: 20,
-        border: "3px solid rgba(255,255,255,0.35)",
-        borderTopColor: "#fff",
-        borderRadius: "50%",
-        animation: "spin 0.8s linear infinite",
-      }}
-    >
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-    </div>
+      className="w-5 h-5 rounded-full border-[3px] border-[rgba(255,255,255,0.35)] border-t-white animate-spin"
+    />
   );
 }

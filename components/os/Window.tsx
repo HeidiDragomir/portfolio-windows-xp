@@ -124,7 +124,7 @@ export default function Window({ win, active, children }: Props) {
             title="Minimize"
             onClick={() => minimize(win.id)}
           >
-            <span style={{ marginTop: -6 }}>_</span>
+            <span className="-mt-1.5">_</span>
           </button>
           <button
             className="xp-title-btn"

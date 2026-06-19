@@ -20,7 +20,7 @@ export default function MyProjects() {
               href={profile.githubReposUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#0c327d", textDecoration: "none" }}
+              className="text-[#0c327d] no-underline"
             >
               Publish this folder to the web
             </a>
@@ -31,7 +31,7 @@ export default function MyProjects() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#0c327d", textDecoration: "none", display: "block" }}
+              className="text-[#0c327d] no-underline block"
             >
               GitHub Profile
             </a>
@@ -44,25 +44,20 @@ export default function MyProjects() {
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "#0c327d", textDecoration: "none", display: "block" }}
+                className="text-[#0c327d] no-underline block"
               >
-                {r.namn} <span style={{ color: "#5a78b0" }}>({r.sprak})</span>
+                {r.namn} <span className="text-[#5a78b0]">({r.sprak})</span>
               </a>
             ))}
           </SidebarCard>
         </>
       }
     >
-      <div style={{ fontSize: 12, fontWeight: "bold", color: "#33558c", marginBottom: 10 }}>
+      <div className="text-[12px] font-bold text-[#33558c] mb-2.5">
         Featured projects
       </div>
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-          gap: 12,
-          maxWidth: "100%",
-        }}
+        className="grid gap-3 max-w-full grid-cols-[repeat(auto-fit,minmax(160px,1fr))]"
       >
         {projects.map((p) => (
           <button
@@ -73,26 +68,16 @@ export default function MyProjects() {
               (e.currentTarget as HTMLElement).focus();
             }}
             title="Double-click to open"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 6,
-              padding: 10,
-              border: "1px solid transparent",
-              background: "transparent",
-              cursor: "pointer",
-              textAlign: "center",
-            }}
+            className="flex flex-col items-center gap-1.5 p-2.5 border border-transparent bg-transparent cursor-pointer text-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={icon(p.ikon)} alt="" width={44} height={44} draggable={false} />
-            <span style={{ fontWeight: "bold" }}>{p.namn}</span>
-            <span style={{ color: "#777", fontSize: 11 }}>{p.kort}</span>
+            <span className="font-bold">{p.namn}</span>
+            <span className="text-[#777] text-[11px]">{p.kort}</span>
           </button>
         ))}
       </div>
-      <p style={{ color: "#888", marginTop: 16 }}>
+      <p className="text-[#888] mt-4">
         Double-click a project to open it. More projects are available on{" "}
         <a href={profile.github} target="_blank" rel="noopener noreferrer">
           GitHub

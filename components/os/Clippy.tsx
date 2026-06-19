@@ -33,19 +33,7 @@ export default function Clippy() {
           setBubble(true);
         }}
         title="Show the assistant"
-        style={{
-          position: "fixed",
-          right: 14,
-          bottom: 40,
-          zIndex: 90000,
-          width: 34,
-          height: 34,
-          borderRadius: "50%",
-          border: "1px solid #0a52c8",
-          background: "linear-gradient(180deg,#fff,#cfe0ff)",
-          cursor: "pointer",
-          fontSize: 16,
-        }}
+        className="fixed right-3.5 bottom-10 z-90000 w-8.5 h-8.5 rounded-full border border-[#0a52c8] bg-[linear-gradient(180deg,#fff,#cfe0ff)] cursor-pointer text-[16px]"
       >
         📎
       </button>
@@ -53,49 +41,28 @@ export default function Clippy() {
   }
 
   return (
-    <div style={{ position: "fixed", right: 18, bottom: 44, zIndex: 90000, width: 230 }}>
+    <div className="fixed right-4.5 bottom-11 z-90000 w-57.5">
       {bubble && (
         <div
-          style={{
-            position: "relative",
-            background: "#ffffcc",
-            border: "1px solid #000",
-            borderRadius: 10,
-            padding: "10px 12px",
-            marginBottom: 6,
-            boxShadow: "2px 3px 8px rgba(0,0,0,0.35)",
-            fontSize: 11,
-            lineHeight: 1.5,
-          }}
+          className="relative bg-[#ffffcc] border border-black rounded-[10px] px-3 pt-2.5 pb-2.5 mb-1.5 [box-shadow:2px_3px_8px_rgba(0,0,0,0.35)] text-[11px] leading-normal"
         >
           <button
             onClick={() => setBubble(false)}
             title="Close tip"
-            style={{
-              position: "absolute",
-              top: 2,
-              right: 4,
-              border: "none",
-              background: "transparent",
-              cursor: "pointer",
-              fontWeight: "bold",
-              color: "#555",
-            }}
+            className="absolute top-0.5 right-1 border-none bg-transparent cursor-pointer font-bold text-[#555]"
           >
             ✕
           </button>
-          <div style={{ paddingRight: 10 }}>{TIPS[tip]}</div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8 }}>
+          <div className="pr-2.5">{TIPS[tip]}</div>
+          <div className="flex justify-between mt-2">
             <button
-              className="xp-btn"
-              style={{ minWidth: 0, padding: "1px 8px", fontSize: 10 }}
+              className="xp-btn min-w-0 px-2 py-px text-[10px]"
               onClick={() => setTip((t) => (t + 1) % TIPS.length)}
             >
               Next tip
             </button>
             <button
-              className="xp-btn"
-              style={{ minWidth: 0, padding: "1px 8px", fontSize: 10 }}
+              className="xp-btn min-w-0 px-2 py-px text-[10px]"
               onClick={() => setVisible(false)}
             >
               Hide me
@@ -103,16 +70,7 @@ export default function Clippy() {
           </div>
           {/* bubble tail */}
           <div
-            style={{
-              position: "absolute",
-              bottom: -8,
-              right: 36,
-              width: 0,
-              height: 0,
-              borderLeft: "8px solid transparent",
-              borderRight: "8px solid transparent",
-              borderTop: "9px solid #000",
-            }}
+            className="absolute -bottom-2 right-9 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-[9px] border-t-black"
           />
         </div>
       )}
@@ -120,13 +78,7 @@ export default function Clippy() {
       <div
         onClick={() => setBubble((b) => !b)}
         title="Clippy the assistant"
-        style={{
-          width: 90,
-          marginLeft: "auto",
-          cursor: "pointer",
-          animation: "clippyBob 3s ease-in-out infinite",
-          filter: "drop-shadow(2px 3px 3px rgba(0,0,0,0.35))",
-        }}
+        className="w-22.5 ml-auto cursor-pointer animate-[clippyBob_3s_ease-in-out_infinite] filter-[drop-shadow(2px_3px_3px_rgba(0,0,0,0.35))]"
       >
         <ClippySvg />
       </div>
@@ -163,7 +115,7 @@ function ClippySvg() {
         <line x1="56" y1="26" x2="70" y2="30" />
       </g>
       {/* eyes */}
-      <g style={{ transformOrigin: "center", animation: "clippyBlink 5s infinite" }}>
+      <g className="origin-center animate-[clippyBlink_5s_infinite]">
         <ellipse cx="40" cy="40" rx="7" ry="9" fill="#fff" stroke="#333" strokeWidth="2" />
         <ellipse cx="60" cy="40" rx="7" ry="9" fill="#fff" stroke="#333" strokeWidth="2" />
         <circle cx="42" cy="42" r="3" fill="#1b1b1b" />

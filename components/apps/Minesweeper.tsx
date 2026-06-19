@@ -166,44 +166,16 @@ export default function Minesweeper() {
   const timeStr = String(time).padStart(3, "0");
 
   return (
-    <div
-      style={{
-        background: "#c0c0c0",
-        padding: 8,
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        userSelect: "none",
-      }}
-    >
-      <div style={{ border: "3px solid", borderColor: "#fff #808080 #808080 #fff", padding: 6, background: "#c0c0c0" }}>
+    <div className="bg-[#c0c0c0] p-2 h-full flex justify-center items-start select-none">
+      <div className="border-[3px] border-solid border-l-white border-t-white border-r-[#808080] border-b-[#808080] p-1.5 bg-[#c0c0c0]">
         {/* Header: counters + face */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            border: "2px solid",
-            borderColor: "#808080 #fff #fff #808080",
-            padding: "4px 6px",
-            marginBottom: 6,
-          }}
-        >
+        <div className="flex justify-between items-center border-2 border-solid border-l-[#808080] border-t-[#808080] border-r-white border-b-white px-1.5 py-1 mb-1.5">
           <Led value={mineCount} />
           <button
             onClick={reset}
             onMouseDown={() => status === "playing" && setFace("ooh")}
             onMouseUp={() => status === "playing" && setFace("smile")}
-            style={{
-              width: 30,
-              height: 30,
-              fontSize: 16,
-              border: "2px solid",
-              borderColor: "#fff #808080 #808080 #fff",
-              background: "#c0c0c0",
-              cursor: "pointer",
-            }}
+            className="w-7.5 h-7.5 text-[16px] border-2 border-solid border-l-white border-t-white border-r-[#808080] border-b-[#808080] bg-[#c0c0c0] cursor-pointer"
             title="New game"
           >
             {faceChar}
@@ -213,11 +185,11 @@ export default function Minesweeper() {
 
         {/* Grid */}
         <div
-          style={{ border: "3px solid", borderColor: "#808080 #fff #fff #808080" }}
+          className="border-[3px] border-solid border-l-[#808080] border-t-[#808080] border-r-white border-b-white"
           onContextMenu={(e) => e.preventDefault()}
         >
           {board.map((row, r) => (
-            <div key={r} style={{ display: "flex" }}>
+            <div key={r} className="flex">
               {row.map((cell, c) => (
                 <CellView
                   key={c}
@@ -230,7 +202,7 @@ export default function Minesweeper() {
           ))}
         </div>
 
-        <div style={{ marginTop: 6, fontSize: 11, color: "#333", textAlign: "center" }}>
+        <div className="mt-1.5 text-[11px] text-[#333] text-center">
           Left-click = dig · Right-click = flag
         </div>
       </div>
@@ -240,20 +212,7 @@ export default function Minesweeper() {
 
 function Led({ value }: { value: string }) {
   return (
-    <div
-      style={{
-        background: "#000",
-        color: "#ff2200",
-        fontFamily: "'Courier New', monospace",
-        fontWeight: "bold",
-        fontSize: 20,
-        letterSpacing: 2,
-        padding: "1px 5px",
-        border: "1px solid #555",
-        minWidth: 46,
-        textAlign: "center",
-      }}
-    >
+    <div className="bg-black text-[#ff2200] font-['Courier_New',monospace] font-bold text-[20px] tracking-[2px] px-1.25 py-px border border-[#555] min-w-11.5 text-center">
       {value}
     </div>
   );
@@ -268,26 +227,13 @@ function CellView({
   onClick: () => void;
   onContextMenu: (e: React.MouseEvent) => void;
 }) {
-  const base: React.CSSProperties = {
-    width: 22,
-    height: 22,
-    fontSize: 13,
-    fontWeight: "bold",
-    lineHeight: "22px",
-    textAlign: "center",
-    padding: 0,
-    cursor: "default",
-  };
+  const base = "w-[22px] h-[22px] text-[13px] font-bold leading-[22px] text-center p-0 cursor-default";
 
   if (cell.revealed) {
     return (
       <div
-        style={{
-          ...base,
-          border: "1px solid #808080",
-          background: cell.mine ? "#ff4040" : "#bdbdbd",
-          color: NUM_COLORS[cell.adjacent] || "#000",
-        }}
+        className={`${base} border border-[#808080] ${cell.mine ? "bg-[#ff4040]" : "bg-[#bdbdbd]"}`}
+        style={{ color: NUM_COLORS[cell.adjacent] || "#000" }}
       >
         {cell.mine ? "💣" : cell.adjacent > 0 ? cell.adjacent : ""}
       </div>
@@ -298,13 +244,7 @@ function CellView({
     <button
       onClick={onClick}
       onContextMenu={onContextMenu}
-      style={{
-        ...base,
-        border: "2px solid",
-        borderColor: "#fff #808080 #808080 #fff",
-        background: "#c0c0c0",
-        cursor: "pointer",
-      }}
+      className={`${base} border-2 border-solid border-l-white border-t-white border-r-[#808080] border-b-[#808080] bg-[#c0c0c0] cursor-pointer`}
     >
       {cell.flagged ? "🚩" : ""}
     </button>

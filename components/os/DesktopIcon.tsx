@@ -19,27 +19,9 @@ export default function DesktopIcon({ icon, label, selected, onSelect, onOpen }:
         e.stopPropagation();
         onOpen();
       }}
-      style={{
-        width: 78,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 3,
-        padding: "4px 2px",
-        background: "transparent",
-        border: "1px dotted transparent",
-        cursor: "default",
-      }}
+      className="w-19.5 flex flex-col items-center gap-0.75 py-1 px-0.5 bg-transparent border border-dotted border-transparent cursor-default"
     >
-      <span
-        style={{
-          width: 36,
-          height: 36,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <span className="w-9 h-9 flex items-center justify-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={icon}
@@ -47,25 +29,11 @@ export default function DesktopIcon({ icon, label, selected, onSelect, onOpen }:
           width={32}
           height={32}
           draggable={false}
-          style={{
-            filter: selected ? "drop-shadow(0 0 1px #1f6ae0)" : "none",
-            // tint the icon when selected
-            opacity: 1,
-          }}
+          className={selected ? "filter-[drop-shadow(0_0_1px_#1f6ae0)]" : ""}
         />
       </span>
       <span
-        className="xp-icon-label"
-        style={{
-          color: "#fff",
-          fontSize: 12,
-          textAlign: "center",
-          lineHeight: 1.15,
-          padding: "1px 3px",
-          background: selected ? "#0b61c9" : "transparent",
-          border: selected ? "1px dotted #cfe0ff" : "1px solid transparent",
-          maxWidth: 76,
-        }}
+        className={`xp-icon-label text-white text-[12px] text-center leading-[1.15] px-0.75 py-px max-w-19 ${selected ? "bg-[#0b61c9] border border-dotted border-[#cfe0ff]" : "bg-transparent border border-solid border-transparent"}`}
       >
         {label}
       </span>

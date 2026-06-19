@@ -19,41 +19,32 @@ export default function ContactMe() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <div className="flex flex-col h-full">
       {/* Toolbar */}
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          padding: "6px 10px",
-          background: "linear-gradient(180deg,#fbfbf6 0%,#e9e6d6 100%)",
-          borderBottom: "1px solid #b9b59f",
-        }}
+        className="flex items-center gap-3.5 px-2.5 py-1.5 border-b border-[#b9b59f] bg-[linear-gradient(180deg,#fbfbf6_0%,#e9e6d6_100%)]"
       >
         <button
-          className="xp-btn"
+          className="xp-btn flex items-center gap-1.5 min-w-22.5"
           onClick={send}
-          style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 90 }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={icon("OE Create Mail.png")} alt="" width={20} height={20} draggable={false} />
           Send
         </button>
-        <span style={{ color: "#666" }}>New Message</span>
+        <span className="text-[#666]">New Message</span>
       </div>
 
       {/* Fields */}
-      <div style={{ padding: 10, display: "flex", flexDirection: "column", gap: 6 }}>
+      <div className="p-2.5 flex flex-col gap-1.5">
         <Row label="To:">
-          <div className="xp-input" style={{ flex: 1, background: "#f3f1e7" }}>
+          <div className="xp-input flex-1 bg-[#f3f1e7]">
             {profile.namn} &lt;{profile.email}&gt;
           </div>
         </Row>
         <Row label="From:">
           <input
-            className="xp-input"
-            style={{ flex: 1 }}
+            className="xp-input flex-1"
             placeholder="you@email.com"
             value={from}
             onChange={(e) => setFrom(e.target.value)}
@@ -61,8 +52,7 @@ export default function ContactMe() {
         </Row>
         <Row label="Subject:">
           <input
-            className="xp-input"
-            style={{ flex: 1 }}
+            className="xp-input flex-1"
             placeholder="Subject"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
@@ -71,25 +61,14 @@ export default function ContactMe() {
       </div>
 
       <textarea
-        className="xp-input xp-scroll selectable"
-        style={{ flex: 1, margin: "0 10px 10px", resize: "none", lineHeight: 1.5 }}
+        className="xp-input xp-scroll selectable flex-1 mx-2.5 mb-2.5 resize-none leading-normal"
         placeholder="Write your message here…"
         value={body}
         onChange={(e) => setBody(e.target.value)}
       />
 
       {/* Contact details footer */}
-      <div
-        className="selectable"
-        style={{
-          padding: "8px 12px",
-          background: "#ece9d8",
-          borderTop: "1px solid #b9b59f",
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 16,
-        }}
-      >
+      <div className="selectable px-3 py-2 bg-[#ece9d8] border-t border-[#b9b59f] flex flex-wrap gap-4">
         <span>✉️ {profile.email}</span>
         <span>📞 {profile.telefon}</span>
         <span>📍 {profile.ort}</span>
@@ -106,8 +85,8 @@ export default function ContactMe() {
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <span style={{ width: 48, color: "#333" }}>{label}</span>
+    <div className="flex items-center gap-2">
+      <span className="w-12 text-[#333]">{label}</span>
       {children}
     </div>
   );
