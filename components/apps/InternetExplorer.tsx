@@ -79,26 +79,26 @@ export default function InternetExplorer() {
       {/* page */}
       <div className="selectable xp-scroll flex-1 overflow-auto bg-white">
         <div
-          className="text-white px-6 py-6.5 bg-[linear-gradient(180deg,#1f6ae0_0%,#0a52c8_100%)]"
+          className="text-white px-4 py-5 md:px-6 md:py-6.5 bg-[linear-gradient(180deg,#1f6ae0_0%,#0a52c8_100%)]"
         >
-          <div className="text-[26px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,.4)]">
+          <div className="text-[22px] md:text-[26px] font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,.4)]">
             heididragomir.dev
           </div>
           <div className="opacity-90">{profile.title}</div>
         </div>
 
-        <div className="p-6 leading-relaxed">
+        <div className="p-4 md:p-6 leading-relaxed">
           <p className="mt-0">
             Welcome! This is {profile.name}&apos;s home page. Use the links below to visit my
             profiles (they open in a new tab).
           </p>
 
-          <div className="flex flex-wrap gap-3 my-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 my-4">
             {bookmarks.map((b) => (
               <button
                 key={b.label}
                 onClick={() => go(b.url)}
-                className="xp-btn flex flex-col items-start min-w-50 p-2.5 text-left"
+                className="xp-btn flex flex-col items-start w-full sm:w-auto sm:min-w-50 p-2.5 text-left"
               >
                 <strong className="text-[#0c327d]">🔗 {b.label}</strong>
                 <span className="text-[#555]">{b.desc}</span>

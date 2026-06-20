@@ -1,13 +1,19 @@
 "use client";
 
 import ExplorerShell, { SidebarCard } from "./ExplorerShell";
-import { projects, moreRepos } from "@/lib/data/projects";
+import { projects, moreRepos, type Project } from "@/lib/data/projects";
 import { profile } from "@/lib/data/profile";
 import { useWindows } from "@/components/os/WindowManagerProvider";
+import { useCoarsePointer } from "@/lib/responsive";
 import { icon } from "@/lib/icons";
 
 export default function MyProjects() {
   const { open } = useWindows();
+  const coarse = useCoarsePointer();
+
+  function openProject(p: Project) {
+    open({ id: `project-${p.id}`, title: p.name, icon: icon(p.icon), width: 560, height: 480 });
+  }
 
   return (
     <ExplorerShell
@@ -57,17 +63,19 @@ export default function MyProjects() {
         Featured projects
       </div>
       <div
-        className="grid gap-3 max-w-full grid-cols-[repeat(auto-fit,minmax(160px,1fr))]"
+        className="grid gap-3 max-w-full grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(160px,1fr))]"
       >
         {projects.map((p) => (
           <button
             key={p.id}
-            onDoubleClick={() => open({ id: `project-${p.id}`, title: p.name, icon: icon(p.icon), width: 560, height: 480 })}
+            onDoubleClick={() => openProject(p)}
             onClick={(e) => {
-              // single click selects (visual only); double-click opens
-              (e.currentTarget as HTMLElement).focus();
+              // Touch can't double-click, so a single tap opens there.
+              // With a mouse, single click just selects; double-click opens.
+              if (coarse) openProject(p);
+              else (e.currentTarget as HTMLElement).focus();
             }}
-            title="Double-click to open"
+            title={coarse ? "Tap to open" : "Double-click to open"}
             className="flex flex-col items-center gap-1.5 p-2.5 border border-transparent bg-transparent cursor-pointer text-center"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -78,7 +86,7 @@ export default function MyProjects() {
         ))}
       </div>
       <p className="text-[#888] mt-4">
-        Double-click a project to open it. More projects are available on{" "}
+        {coarse ? "Tap" : "Double-click"} a project to open it. More projects are available on{" "}
         <a href={profile.github} target="_blank" rel="noopener noreferrer">
           GitHub
         </a>

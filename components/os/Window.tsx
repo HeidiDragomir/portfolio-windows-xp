@@ -1,10 +1,12 @@
 "use client";
 
-import { useRef, useState, type ReactNode, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type ReactNode, type PointerEvent } from "react";
 import { useWindows, type WindowState } from "./WindowManagerProvider";
 
 const MIN_W = 280;
 const MIN_H = 160;
+const TASKBAR_H = 30;
+const MOBILE_MARGIN = 6;
 
 interface Props {
   win: WindowState;
@@ -14,6 +16,22 @@ interface Props {
 
 export default function Window({ win, active, children }: Props) {
   const { focus, close, minimize, toggleMaximize, move, resize } = useWindows();
+
+  // On phones, windows behave like full-screen apps: no drag/resize, they
+  // fill the screen (minus the taskbar) and you switch between them via the
+  // taskbar. Starts false so SSR/first paint uses the normal desktop geometry.
+  const [isMobile, setIsMobile] = useState(false);
+  const [vp, setVp] = useState({ w: 0, h: 0 });
+
+  useEffect(() => {
+    const update = () => {
+      setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+      setVp({ w: window.innerWidth, h: window.innerHeight });
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   // Local geometry used only while dragging/resizing for smoothness.
   const [drag, setDrag] = useState<{ x: number; y: number } | null>(null);
@@ -28,13 +46,13 @@ export default function Window({ win, active, children }: Props) {
     origH: number;
   } | null>(null);
 
-  const x = drag?.x ?? win.x;
-  const y = drag?.y ?? win.y;
-  const w = size?.w ?? win.width;
-  const h = size?.h ?? win.height;
+  const x = isMobile ? MOBILE_MARGIN : drag?.x ?? win.x;
+  const y = isMobile ? MOBILE_MARGIN : drag?.y ?? win.y;
+  const w = isMobile ? vp.w - MOBILE_MARGIN * 2 : size?.w ?? win.width;
+  const h = isMobile ? vp.h - TASKBAR_H - MOBILE_MARGIN * 2 : size?.h ?? win.height;
 
   function onTitlePointerDown(e: PointerEvent) {
-    if (win.maximized) return;
+    if (isMobile || win.maximized) return;
     if ((e.target as HTMLElement).closest(".xp-title-btn")) return;
     focus(win.id);
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
@@ -51,7 +69,7 @@ export default function Window({ win, active, children }: Props) {
   }
 
   function onResizePointerDown(e: PointerEvent) {
-    if (win.maximized) return;
+    if (isMobile || win.maximized) return;
     e.stopPropagation();
     focus(win.id);
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
@@ -113,7 +131,9 @@ export default function Window({ win, active, children }: Props) {
         onPointerDown={onTitlePointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
-        onDoubleClick={() => toggleMaximize(win.id)}
+        onDoubleClick={() => {
+          if (!isMobile) toggleMaximize(win.id);
+        }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="xp-titlebar-icon" src={win.icon} alt="" draggable={false} />
@@ -126,13 +146,15 @@ export default function Window({ win, active, children }: Props) {
           >
             <span className="-mt-1.5">_</span>
           </button>
-          <button
-            className="xp-title-btn"
-            title={win.maximized ? "Restore" : "Maximize"}
-            onClick={() => toggleMaximize(win.id)}
-          >
-            {win.maximized ? "❐" : "▢"}
-          </button>
+          {!isMobile && (
+            <button
+              className="xp-title-btn"
+              title={win.maximized ? "Restore" : "Maximize"}
+              onClick={() => toggleMaximize(win.id)}
+            >
+              {win.maximized ? "❐" : "▢"}
+            </button>
+          )}
           <button
             className="xp-title-btn close"
             title="Close"
@@ -145,7 +167,7 @@ export default function Window({ win, active, children }: Props) {
 
       <div className="xp-window-body">{children}</div>
 
-      {!win.maximized && (
+      {!win.maximized && !isMobile && (
         <div
           className="xp-resize"
           onPointerDown={onResizePointerDown}

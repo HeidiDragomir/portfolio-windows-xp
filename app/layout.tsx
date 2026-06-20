@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   icons: {
     icon: "/assets/Windows%20XP%20Icons/My%20Computer.png",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // The desktop is a fixed OS surface — disable user zoom/pan so it can't be
+  // dragged around on touch devices.
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

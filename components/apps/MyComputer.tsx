@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ExplorerShell, { SidebarCard } from "./ExplorerShell";
 import { skills } from "@/lib/data/skills";
 import { profile } from "@/lib/data/profile";
+import { useIsMobile } from "@/lib/responsive";
 import { icon } from "@/lib/icons";
 
 export default function MyComputer() {
   const [selected, setSelected] = useState<string | null>(null);
   const current = skills.find((s) => s.category === selected) ?? null;
+  const isMobile = useIsMobile();
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // On mobile the drive contents render below the fold, so jump to them.
+  useEffect(() => {
+    if (selected && isMobile && contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [selected, isMobile]);
 
   return (
     <ExplorerShell
@@ -45,7 +55,7 @@ export default function MyComputer() {
       <div className="text-[12px] font-bold text-[#33558c] mb-2">
         Hard drives (skill areas)
       </div>
-      <div className="grid gap-2.5 mb-4.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
+      <div className="grid gap-2.5 mb-4.5 grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
         {skills.map((s) => (
           <button
             key={s.category}
@@ -64,11 +74,11 @@ export default function MyComputer() {
       </div>
 
       {current && (
-        <div className="selectable border-t border-[#d6d2bd] pt-2.5">
+        <div ref={contentRef} className="selectable border-t border-[#d6d2bd] pt-2.5 scroll-mt-2">
           <div className="font-bold mb-1.5">
             Contents of {current.drive} – {current.category}
           </div>
-          <ul className="m-0 pl-4.5 leading-[1.8] columns-2">
+          <ul className="m-0 pl-4.5 leading-[1.8] columns-1 sm:columns-2">
             {current.skills.map((f) => (
               <li key={f}>{f}</li>
             ))}

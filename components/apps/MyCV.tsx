@@ -15,7 +15,7 @@ export default function MyCV() {
     <div className="flex flex-col h-full">
       {/* Toolbar */}
       <div
-        className="flex gap-2 items-center px-2.5 py-1.5 border-b border-[#b9b59f] bg-[linear-gradient(180deg,#fbfbf6_0%,#e9e6d6_100%)]"
+        className="flex flex-wrap gap-2 items-center px-2.5 py-1.5 border-b border-[#b9b59f] bg-[linear-gradient(180deg,#fbfbf6_0%,#e9e6d6_100%)]"
       >
         <a href={cvPdf} target="_blank" rel="noopener noreferrer">
           <button className="xp-btn">📄 Open PDF</button>

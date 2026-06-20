@@ -22,9 +22,11 @@ export default function BootScreen({ onDone }: Props) {
 
   return (
     <div
-      className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-10 z-200000 transition-opacity duration-600 ease-[ease] ${fading ? "opacity-0" : "opacity-100"}`}
+      className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-10 px-6 sm:px-20 z-200000 transition-opacity duration-600 ease-[ease] ${fading ? "opacity-0" : "opacity-100"}`}
     >
-      <XpLogo scale={1.9} />
+      <div className="scale-[0.6] sm:scale-100 origin-center">
+        <XpLogo scale={1.9} />
+      </div>
 
       {/* Animated XP-style loading bar (three blocks sliding through a track). */}
       <div
@@ -33,7 +35,7 @@ export default function BootScreen({ onDone }: Props) {
         <div className="bootbar" />
       </div>
 
-      <div className="absolute bottom-6 right-10 text-right text-[16px] text-[#cfd6e6]">
+      <div className="absolute bottom-5 right-6 sm:bottom-6 sm:right-10 text-right text-[16px] text-[#cfd6e6]">
         <div className="font-bold">Welcome to my portfolio.</div>
         <div className="opacity-70">Copyright © 2026 Heidi Dragomir</div>
       </div>

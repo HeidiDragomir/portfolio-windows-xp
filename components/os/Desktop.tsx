@@ -4,12 +4,15 @@ import { useState } from "react";
 import DesktopIcon from "./DesktopIcon";
 import { DESKTOP_APPS, type AppDef } from "@/lib/apps";
 import { useWindows } from "./WindowManagerProvider";
+import { useCoarsePointer } from "@/lib/responsive";
 import { WALLPAPER } from "@/lib/icons";
 import { playClick } from "@/lib/audio";
 
 export default function Desktop() {
   const { open } = useWindows();
   const [selected, setSelected] = useState<string | null>(null);
+  // Touch devices can't double-click reliably, so a single tap opens there.
+  const tapToOpen = useCoarsePointer();
 
   function openApp(app: AppDef) {
     playClick();
@@ -38,6 +41,7 @@ export default function Desktop() {
             icon={app.icon}
             label={app.label ?? app.title}
             selected={selected === app.id}
+            tapToOpen={tapToOpen}
             onSelect={() => setSelected(app.id)}
             onOpen={() => openApp(app)}
           />

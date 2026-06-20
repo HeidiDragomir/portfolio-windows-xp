@@ -4,16 +4,22 @@ interface Props {
   icon: string;
   label: string;
   selected: boolean;
+  /** On touch devices a single tap opens (double-tap is unreliable). */
+  tapToOpen: boolean;
   onSelect: () => void;
   onOpen: () => void;
 }
 
-export default function DesktopIcon({ icon, label, selected, onSelect, onOpen }: Props) {
+export default function DesktopIcon({ icon, label, selected, tapToOpen, onSelect, onOpen }: Props) {
   return (
     <button
       onClick={(e) => {
         e.stopPropagation();
-        onSelect();
+        if (tapToOpen) {
+          onOpen();
+        } else {
+          onSelect();
+        }
       }}
       onDoubleClick={(e) => {
         e.stopPropagation();

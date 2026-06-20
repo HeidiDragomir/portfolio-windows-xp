@@ -15,6 +15,7 @@ interface Props {
 export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
   const [loggingIn, setLoggingIn] = useState(false);
   const [hover, setHover] = useState(false);
+  const tagline = "To begin the journey click on my username.";
 
   function logOn() {
     if (loggingIn) return;
@@ -32,26 +33,26 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
 
       {/* Middle field with a soft light glow */}
       <div
-        className="flex-1 flex items-center justify-center bg-[radial-gradient(130%_120%_at_24%_28%,rgba(255,255,255,0.45)_0%,rgba(110,150,225,0)_46%),linear-gradient(180deg,#5786dd_0%,#4d7ad4_100%)]"
+        className="flex-1 flex items-center justify-center px-5 bg-[radial-gradient(130%_120%_at_24%_28%,rgba(255,255,255,0.45)_0%,rgba(110,150,225,0)_46%),linear-gradient(180deg,#5786dd_0%,#4d7ad4_100%)]"
       >
-        <div className="flex w-[88%] max-w-[860px] items-center">
-          {/* Left: branding */}
-          <div className="flex-1 min-w-0 flex flex-col items-end pr-[34px] text-right">
-            <XpLogo scale={1.6} />
-            <div
-              className="mt-[26px] text-[15px] max-w-[300px] [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]"
-            >
-              To begin the journey click on my username.
+        <div className="flex flex-col md:flex-row w-full sm:w-[88%] max-w-[860px] items-center gap-5 md:gap-0">
+          {/* Title / branding — sits on top on mobile, left column on desktop */}
+          <div className="order-1 md:flex-1 md:min-w-0 flex flex-col items-center md:items-end md:pr-[34px] text-center md:text-right">
+            <div className="scale-90 sm:scale-100 origin-center">
+              <XpLogo scale={1.6} />
+            </div>
+            <div className="hidden md:block mt-[26px] text-[15px] max-w-[300px] [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]">
+              {tagline}
             </div>
           </div>
 
-          {/* Vertical divider */}
+          {/* Divider — horizontal between title and user on mobile, vertical on desktop */}
           <div
-            className="w-0.5 h-[230px] bg-[linear-gradient(180deg,transparent_0%,rgba(207,224,255,0.9)_50%,transparent_100%)] [box-shadow:0_0_8px_rgba(180,208,255,0.7)]"
+            className="order-2 h-0.5 w-[78%] max-w-[300px] md:w-0.5 md:h-[230px] md:max-w-none bg-[linear-gradient(90deg,transparent_0%,rgba(207,224,255,0.9)_50%,transparent_100%)] md:bg-[linear-gradient(180deg,transparent_0%,rgba(207,224,255,0.9)_50%,transparent_100%)] [box-shadow:0_0_8px_rgba(180,208,255,0.7)]"
           />
 
-          {/* Right: user list (one user) */}
-          <div className="flex-1 min-w-0 pl-[34px]">
+          {/* User list (photo + name) — sits under the title on mobile */}
+          <div className="order-3 md:flex-1 md:min-w-0 md:pl-[34px] flex flex-col items-center md:items-start">
             {loggingIn ? (
               <div className="flex items-center gap-3.5">
                 <Spinner />
@@ -80,13 +81,17 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
                 </span>
               </button>
             )}
+            {/* tagline shown under the name on mobile */}
+            <div className="md:hidden mt-4 text-[13px] text-center max-w-[280px] [text-shadow:1px_1px_2px_rgba(0,0,0,0.35)]">
+              {tagline}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom band — deep blue with a glowing amber hairline */}
       <div
-        className="h-[19%] border-t border-[#f3b24a] flex justify-between items-center px-[26px] bg-[linear-gradient(180deg,#2f63c8_0%,#1f4aa6_100%)] [box-shadow:0_-1px_9px_1px_rgba(243,170,70,0.6)]"
+        className="md:h-[19%] py-4 md:py-0 border-t border-[#f3b24a] flex flex-col md:flex-row gap-3 md:gap-0 justify-center md:justify-between items-center px-6 sm:px-[26px] bg-[linear-gradient(180deg,#2f63c8_0%,#1f4aa6_100%)] [box-shadow:0_-1px_9px_1px_rgba(243,170,70,0.6)]"
       >
         <button
           onClick={onRequestShutdown}
@@ -104,7 +109,7 @@ export default function LoginScreen({ onLogin, onRequestShutdown }: Props) {
         </button>
 
         <div
-          className="text-[13px] max-w-[450px] text-right leading-normal opacity-[0.95] [text-shadow:1px_1px_1px_rgba(0,0,0,0.3)]"
+          className="text-[13px] max-w-[450px] text-center md:text-right leading-normal opacity-[0.95] [text-shadow:1px_1px_1px_rgba(0,0,0,0.3)]"
         >
           After logging in, you can browse through the folders on my computer.
           <br />

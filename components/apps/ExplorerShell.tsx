@@ -56,12 +56,12 @@ export default function ExplorerShell({
           </div>
         </div>
       )}
-      {/* Body */}
-      <div className="flex flex-1 min-h-0">
-        <div className="xp-sidebar xp-scroll w-45 shrink-0 p-2.5 overflow-auto">
+      {/* Body — single column on mobile (sidebar on top), two columns on desktop */}
+      <div className="flex flex-1 min-h-0 flex-col md:flex-row">
+        <div className="xp-sidebar xp-scroll w-full md:w-45 shrink-0 p-2.5 overflow-auto">
           {sidebar}
         </div>
-        <div className="xp-scroll flex-1 overflow-auto p-3.5">
+        <div className="xp-scroll flex-1 overflow-auto p-2.5 md:p-3.5">
           {children}
         </div>
       </div>

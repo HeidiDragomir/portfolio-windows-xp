@@ -68,7 +68,7 @@ export default function MyDocuments() {
                 <span className="text-[#33558c] whitespace-nowrap">{e.period}</span>
               </button>
               {open === i && (
-                <div className="pt-1 pr-3 pb-3 pl-12">
+                <div className="pt-1 pr-3 pb-3 pl-3 md:pl-12">
                   <p className="mt-1 mb-2 text-[#333]">{e.description}</p>
                   <ul className="mt-0 mb-2.5 pl-4.5 leading-[1.6]">
                     {e.bullets.map((p, j) => (
