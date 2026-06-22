@@ -172,7 +172,7 @@ export default function MyMusic() {
         ))}
       </div>
       <div className="px-3 py-1 text-[11px] text-[#6f9cc4]">
-        90s hits playlist
+        2000s hits playlist
       </div>
     </div>
   );

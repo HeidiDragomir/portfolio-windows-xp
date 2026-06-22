@@ -130,27 +130,21 @@ function pat(seq: Array<[number, number]>): number[] {
 }
 
 export const MUSIC_TRACKS: MusicTrack[] = [
-  // MP3 tracks
-  { id: "two-princes", name: "Two Princes", artist: "Spin Doctors", filePath: "/assets/music/Spin Doctors - Two Princes.mp3" },
-  { id: "dreams", name: "Dreams", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Dreams.mp3" },
-  { id: "linger", name: "Linger", artist: "The Cranberries", filePath: "/assets/music/The Cranberries - Linger.mp3" },
-  { id: "loser", name: "Loser", artist: "Beck", filePath: "/assets/music/Beck - Loser (Official Music Video).mp3" },
-  { id: "freestyler", name: "Freestyler", artist: "Bomfunk MC's", filePath: "/assets/music/Bomfunk MC's - Freestyler (Video Original Version).mp3" },
-  { id: "hedonism", name: "Hedonism", artist: "Skunk Anansie", filePath: "/assets/music/Skunk Anansie - Hedonism.mp3" },
-  { id: "girls-and-boys", name: "Girls and Boys", artist: "Blur", filePath: "/assets/music/Blur - Girls And Boys (Official Music Video).mp3" },
-  { id: "song2", name: "Song 2", artist: "Blur", filePath: "/assets/music/Blur - Song 2 (Official Music Video).mp3" },
-  { id: "charmless-man", name: "Charmless Man", artist: "Blur", filePath: "/assets/music/Blur - Charmless Man (Official Music Video).mp3" },
-  { id: "big-in-japan", name: "Big in Japan", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Big In Japan (Official Video).mp3" },
-  { id: "lords-of-the-boards", name: "Lords Of The Boards", artist: "Guano Apes", filePath: "/assets/music/Guano Apes - Lords Of The Boards (official video).mp3" },
-  { id: "common-people", name: "Common People", artist: "Pulp", filePath: "/assets/music/Pulp - Common People.mp3" },
-  { id: "basket-case", name: "Basket Case", artist: "Green Day", filePath: "/assets/music/Green Day - Basket Case [Official Music Video].mp3" },
-  { id: "scar-tissue", name: "Scar Tissue", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Scar Tissue [Official Music Video].mp3" },
-  { id: "under-the-bridge", name: "Under The Bridge", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Under The Bridge [Official Music Video].mp3" },
-  { id: "ironic", name: "Ironic", artist: "Alanis Morissette", filePath: "/assets/music/Alanis Morissette - Ironic (Official 4K Music Video).mp3" },
-  { id: "mr-jones", name: "Mr. Jones", artist: "Counting Crows", filePath: "/assets/music/Counting Crows - Mr. Jones (Official Music Video).mp3" },
-  { id: "3am", name: "3AM", artist: "Matchbox Twenty", filePath: "/assets/music/Matchbox Twenty - 3AM (Official Video).mp3" },
-  { id: "friday", name: "Friday I'm In Love", artist: "The Cure", filePath: "/assets/music/The Cure - Friday I'm In Love.mp3" },
-  { id: "narcotic", name: "Narcotic", artist: "Liquido", filePath: "/assets/music/Liquido - Narcotic (HD).mp3" },
+  // MP3 tracks — 2000s hits to match the era.
+  { id: "kryptonite", name: "Kryptonite", artist: "3 Doors Down", filePath: "/assets/music/3 Doors Down - Kryptonite (Official Video).mp3" },
+  { id: "yellow", name: "Yellow", artist: "Coldplay", filePath: "/assets/music/Coldplay - Yellow (Official Video).mp3" },
+  { id: "holiday", name: "Holiday", artist: "Green Day", filePath: "/assets/music/Green Day - Holiday (Official Audio).mp3" },
+  { id: "again", name: "Again", artist: "Lenny Kravitz", filePath: "/assets/music/Lenny Kravitz - Again (Official Music Video).mp3" },
+  { id: "rollin", name: "Rollin'", artist: "Limp Bizkit", filePath: "/assets/music/Limp Bizkit - Rollin' (Air Raid Vehicle).mp3" },
+  { id: "kids", name: "Kids", artist: "MGMT", filePath: "/assets/music/MGMT - Kids (Official HD Video).mp3" },
+  { id: "mad-season", name: "Mad Season", artist: "Matchbox Twenty", filePath: "/assets/music/Matchbox Twenty - Mad Season (Official Video).mp3" },
+  { id: "uprising", name: "Uprising", artist: "Muse", filePath: "/assets/music/Muse - Uprising [Official Video].mp3" },
+  { id: "numb", name: "Numb", artist: "Linkin Park", filePath: "/assets/music/Numb (Official Music Video) [4K UPGRADE] Linkin Park.mp3" },
+  { id: "hey-ya", name: "Hey Ya!", artist: "OutKast", filePath: "/assets/music/OutKast - Hey Ya! (Lyrics).mp3" },
+  { id: "last-resort", name: "Last Resort", artist: "Papa Roach", filePath: "/assets/music/Papa Roach - Last Resort (Squeaky Clean Version) (Official Music Video).mp3" },
+  { id: "californication", name: "Californication", artist: "Red Hot Chili Peppers", filePath: "/assets/music/Red Hot Chili Peppers - Californication (Official Music Video) [HD UPGRADE].mp3" },
+  { id: "mr-brightside", name: "Mr. Brightside", artist: "The Killers", filePath: "/assets/music/The Killers - Mr. Brightside (Official Music Video).mp3" },
+  { id: "beautiful-day", name: "Beautiful Day", artist: "U2", filePath: "/assets/music/U2 - Beautiful Day (Official Music Video).mp3" },
 ];
 
 type TickCb = (currentSec: number, lengthSec: number) => void;

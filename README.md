@@ -15,7 +15,7 @@ This project was created as a learning exercise to explore and test **Claude Cod
   - **Internet Explorer** – Landing page with active links to GitHub and LinkedIn (functional address bar)
   - **My CV** – Bilingual CV viewer (Swedish and English) with language toggle, open PDF and download buttons
   - **Contact Me** – Outlook Express-style email form that opens your default mail client with pre-filled message
-  - **My Music** – Windows Media Player-style player with 20 real MP3 tracks from the 90s, includes equalizer visualizer
+  - **My Music** – Windows Media Player-style player with 14 real MP3 tracks from the 2000s, includes equalizer visualizer
   - **Notepad** – "About me" text editor with personal bio and philosophy
   - **Paint** – Drawing canvas with color palette and brush size controls
   - **Minesweeper** – Fully playable classic game with timer, mine counter and flood-fill logic
@@ -100,7 +100,7 @@ npm run build
 
 - **Wallpaper & icons** – Windows XP asset pack
 - **Startup chime & click sounds** – Synthesized via Web Audio API
-- **Music** – 90s hits MP3 collection
+- **Music** – 2000s hits MP3 collection
 - **Framework & tooling** – Next.js, React, TypeScript, Tailwind CSS
 
 ---
